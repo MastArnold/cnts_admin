@@ -1,0 +1,26 @@
+<!-- Sidebar -->
+<div class="w-1/5 h-full flex flex-col justify-between py-8 px-4">
+    <div class="w-full space-y-4">
+        <!-- Brand -->
+        <div class="w-full flex gap-2">
+            <span>LOGO</span>
+        </div>
+        <!-- Nav list -->
+        <div class="w-full flex flex-col gap-4">
+            <!-- Nav list item -->
+            @for(item of menu; track item.name){
+                <button (click)="active(item.name)" 
+                        class="relative w-full flex gap-0 rounded-r-lg py-3 transition ease-in-out duration-300 cursor-pointer" [ngClass]="{'bg-blue-100': item.active}">
+                    <span class="absolute top-0 bottom-0 left-0 w-2 bg-blue-900 rounded-xl transition-transform duration-300 ease-in-out" [ngClass]="{'origin-top scale-y-100': item.active, 'origin-bottom scale-y-0': !item.active}"></span>
+                    <div class="ml-4 flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-lg" [ngClass]="{'bg-blue-950': item.active, 'bg-gray-600': !item.active}"></div>
+                        <span class="text-xs text-gray-950 font-bold" [ngClass]="{'text-blue-950': item.active, 'text-gray-600': !item.active}">{{ item.text }}</span>
+                    </div>
+                </button>
+            }
+        </div>
+    </div>
+    <div class="flex justify-center items-center px-4">
+        <div class="w-6 h-6 bg-gray-600 rounded-lg"></div>
+    </div>
+</div>

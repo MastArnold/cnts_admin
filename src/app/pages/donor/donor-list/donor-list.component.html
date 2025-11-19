@@ -1,0 +1,53 @@
+<div>
+    <!-- Search Input -->
+    <div class="flex justify-center items-center gap-3 w-full">
+        <div class="w-1/2 flex items-center gap-4 bg-[var(--pmr-1)] py-3 px-4 rounded-lg">
+            <div class="w-4 h-4 bg-gray-800"></div>
+            <input type="text" placeholder="Rechercher un numéro de don, un nom, un prénom, ..." 
+                    class="w-full text-sm text-gray-700 focus:outline-none">
+        </div>
+        <button class="w-6 h-6 bg-gray-800 rounded-md cursor-pointer"></button>
+    </div>
+    
+    
+    <!-- Table -->
+    <div class="mt-8">
+        <p class="text-xs mb-2">Titre de table</p>
+
+        <div>
+            <div class="flex justify-between items-center gap-3 py-2">
+                <div class="w-[5%] text-xs text-[var(--pmr-2)] font-bold">N°</div>
+                <div class="w-[30%] text-xs text-[var(--pmr-2)] font-bold">Nom complet</div>
+                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold">Date de naissance</div>
+                <div class="w-[20%] text-xs text-[var(--pmr-2)] font-bold">Téléphone</div>
+                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold text-center">Eligibilité</div>
+                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold">Dernier don</div>
+                <div class="w-[15%] text-xs text-[var(--pmr-2)] font-bold"></div>
+            </div>
+            @for($i of [1,2,3,4,5,6,7,8,9,10,11]; track $i){
+                <div class="flex justify-between items-center gap-3 pt-3 pb-4 border-t-1">
+                    <div class="w-[5%] text-xs text-[var(--pmr-2)]"># 1</div>
+                    <div class="w-[30%] text-xs text-[var(--pmr-2)]">KIENOU L. Arnold Jonathan</div>
+                    <div class="w-[10%] text-xs text-[var(--pmr-2)]">24 / 07 /2000</div>
+                    <div class="w-[20%] text-xs text-[var(--pmr-2)]">(226) 74 16 64 39 / 02 01 85 74</div>
+                    <div class="w-[10%] text-xs text-[var(--pmr-2)] text-center">
+                        <span class="inline-block text-xs text-green-700 font-bold bg-green-100 
+                                    flex items-center justify-center px-3 py-1 rounded-xl">
+                            Eligible
+                        </span>
+                    </div>
+                    <div class="w-[10%] text-xs text-[var(--pmr-2)]">10 / 10 / 2023</div>
+                    <div class="w-[15%] text-xs text-[var(--pmr-2)]">
+                        <button class="bg-[var(--pmr-1)] border-[var(--pmr-2)] border-2 text-[var(--pmr-2)] rounded-md px-3 py-1
+                                        text-xs font-bold cursor-pointer">
+                            DETAIL
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+<app-modal-search-list></app-modal-search-list>

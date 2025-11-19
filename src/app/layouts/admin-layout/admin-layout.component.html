@@ -1,37 +1,91 @@
-<div>
+<div class="w-full h-[100vh] flex justify-between gap-4">
     <!-- Sidebar -->
-    <div>
-        <div>
-
+    <div class="w-1/5 h-[100vh] flex flex-col justify-between py-8 px-4">
+        <div class="w-full space-y-4">
+            <!-- Brand -->
+            <div class="w-full flex gap-2">
+                <span>LOGO</span>
+            </div>
+            <!-- Nav list -->
+            <div class="w-full flex flex-col gap-4">
+                <!-- Nav list item -->
+                @for(item of menu; track item.name){
+                    <button (click)="active(item.name)" 
+                            class="relative w-full flex gap-0 rounded-r-lg py-3 transition ease-in-out duration-300 cursor-pointer" [ngClass]="{'bg-blue-100': item.active}">
+                        <span class="absolute top-0 bottom-0 left-0 w-2 bg-blue-900 rounded-xl transition-transform duration-300 ease-in-out" [ngClass]="{'origin-top scale-y-100': item.active, 'origin-bottom scale-y-0': !item.active}"></span>
+                        <div class="ml-4 flex items-center gap-3">
+                            <div class="w-6 h-6 rounded-lg" [ngClass]="{'bg-blue-950': item.active, 'bg-gray-600': !item.active}"></div>
+                            <span class="text-xs text-gray-950 font-bold" [ngClass]="{'text-blue-950': item.active, 'text-gray-600': !item.active}">{{ item.text }}</span>
+                        </div>
+                    </button>
+                }
+            </div>
         </div>
-        <div>
-            <button>
-                <div>SVG</div>
-                <span>Donneurs</span>
-            </button>
-        </div>
-        <div>
-
+        <div class="flex justify-center items-center px-4">
+            <div class="w-6 h-6 bg-gray-600 rounded-lg"></div>
         </div>
     </div>
     
     <!-- Main -->
-    <div>
+    <div class="w-4/5 h-full">
         <!-- Topbar -->
-        <div>
-            
+        <div class="w-full h-16 flex justify-between bg-white py-4 px-4">
+            <div class="flex items-center">
+                <div class="w-6 h-6 bg-gray-600"></div>
+                <input type="text" placeholder="Rechercher ..." 
+                        class="w-72 py-2 px-4 text-sm text-gray-500 font-medium focus:outline-none focus:bg-yellow-50">
+            </div>
+            <div class="flex items-center justify-end gap-6">
+                <div class="w-6 h-6 bg-gray-600"></div>
+
+                <div class="w-6 h-6 bg-gray-600"></div>
+
+                <div class="relative" >
+                    <div #avatar (click)="toggleAuthCard($event)" class="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center p-2 text-xs font-bold text-blue-950 cursor-pointer">
+                        KJ
+                    </div>
+                    @if(isOpen()){
+                        <div #authCard (click)="$event.stopPropagation()"
+                                tabindex="0" 
+                                class="absolute top-full translate-y-6 right-0 p-2 rounded-md w-72 bg-white">
+                            <div class="w-full flex items-center gap-3 p-1">
+                                <div class="w-8 h-8 bg-blue-200 rounded-full flex items-center justify-center p-2 text-xs font-bold text-blue-950">
+                                    KJ
+                                </div>
+                                
+                                <div class="flex flex-col gap-1">
+                                    <span class="text-sm text-gray-950">KIENOU Lossi Arnold Jonathan</span>
+                                    <span class="text-xs text-gray-600 font-bold">Développeur</span>
+                                </div>
+                            </div>
+                            <hr class="w-[75%] my-2 border-gray-300">
+                            <div class="flex flex-col gap-0">
+                                <button class="flex items-center gap-3 px-1 py-2 bg-white hover:bg-gray-50 rounded-md cursor-pointer">
+                                    <div class="w-4 h-4 bg-gray-800"></div>
+                                    <span class="text-xs text-gray-600">Profil</span>
+                                </button>
+                                <button class="flex items-center gap-3 px-1 py-2 bg-white hover:bg-gray-50 rounded-md cursor-pointer">
+                                    <div class="w-4 h-4 bg-gray-800"></div>
+                                    <span class="text-xs text-gray-600">Déconnexion</span>
+                                </button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
         
         <!-- Content -->
-        <div>
+        <div class="w-full h-[calc(100vh-64px)] overflow-y-auto px-4 py-3 bg-white space-y-3 bg-gray-50">
             <!-- App Path -->
-            <div>
-                
+            <div class="space-y-1 w-full">
+                <h1 class="text-3xl text-gray-800 font-bold text-center">Titre de page</h1>
+                <p class="text-xs text-gray-400 font-bold text-center">Description de la page</p>
             </div>
             
             <!-- Component -->
-            <div>
-
+            <div class="py-4">
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>
