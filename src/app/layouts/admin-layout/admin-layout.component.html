@@ -10,14 +10,14 @@
             <div class="w-full flex flex-col gap-4">
                 <!-- Nav list item -->
                 @for(item of menu; track item.name){
-                    <button (click)="active(item.name)" 
+                    <a (click)="active(item.name)" [routerLink]="item.target"
                             class="relative w-full flex gap-0 rounded-r-lg py-3 transition ease-in-out duration-300 cursor-pointer" [ngClass]="{'bg-blue-100': item.active}">
                         <span class="absolute top-0 bottom-0 left-0 w-2 bg-blue-900 rounded-xl transition-transform duration-300 ease-in-out" [ngClass]="{'origin-top scale-y-100': item.active, 'origin-bottom scale-y-0': !item.active}"></span>
                         <div class="ml-4 flex items-center gap-3">
                             <div class="w-6 h-6 rounded-lg" [ngClass]="{'bg-blue-950': item.active, 'bg-gray-600': !item.active}"></div>
                             <span class="text-xs text-gray-950 font-bold" [ngClass]="{'text-blue-950': item.active, 'text-gray-600': !item.active}">{{ item.text }}</span>
                         </div>
-                    </button>
+                    </a>
                 }
             </div>
         </div>
@@ -77,16 +77,7 @@
         
         <!-- Content -->
         <div class="w-full h-[calc(100vh-64px)] overflow-y-auto px-4 py-3 bg-white space-y-3 bg-gray-50">
-            <!-- App Path -->
-            <div class="space-y-1 w-full">
-                <h1 class="text-3xl text-gray-800 font-bold text-center">Titre de page</h1>
-                <p class="text-xs text-gray-400 font-bold text-center">Description de la page</p>
-            </div>
-            
-            <!-- Component -->
-            <div class="py-4">
-                <router-outlet></router-outlet>
-            </div>
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

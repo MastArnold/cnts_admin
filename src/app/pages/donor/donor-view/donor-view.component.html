@@ -1,1 +1,355 @@
-<p>donor-view works!</p>
+<div class="px-16 py-8 bg-gray-50">
+    <div class="flex justify-between py-6">
+        <div class="flex flex-col gap-2">
+            <h1 class="text-3xl text-gray-950 font-bold font-sans">Donneur</h1>
+            <h2 class="text-md text-gray-700 font-medium font-sans">Administrer un donneur</h2>
+        </div>
+        <button class="px-4 py-2 text-center w-32 text-lg font-sans font-medium rounded-md" (click)="info()">Modifier</button>
+    </div>
+
+    <div class="py-2">
+        <p class="text-xs text-red-600 font-medium font-sans">Crée le {{ donor.createdAt | date: 'dd/MM/yyyy' }}</p>
+    </div>
+
+    <form [formGroup]="formView" class="">
+        <!--Information personnelles-->
+        <div class="px-12 py-8 bg-white">
+            <div class="side-form">
+                <div class="side-title">
+                    <label for="" class="">Informations personnelles</label>
+                </div>
+                <div class="side-container">
+                    <div class="side-group">
+                        <label for="fullname" class="side-group-label">Nom et prénom</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M19 20C15 20 6.6 20 5 20C3.4 20 3 18.6667 3 18V6C3 4.89543 3.89543 4 5 4H15C16.1046 4 17 4.89506 17 5.99963C17 7.81578 17 9.98993 17 12M19 20C18.3333 20 17 19.6 17 18C17 17.2095 17 14.7594 17 12M19 20C20.6 20 21 18.6667 21 18V12H17" class="stroke-gray-700" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M7 16H13M12 10C12 11.1046 11.1046 12 10 12C8.89543 12 8 11.1046 8 10C8 8.89543 8.89543 8 10 8C11.1046 8 12 8.89543 12 10Z" class="stroke-gray-700" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></g></svg>
+                            <input type="text" formControlName="fullname" id="fullname" placeholder="kienou kisito" class="uppercase">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="gender" class="side-group-label">Sexe</label>
+                        <div class="side-group-input">
+                            <svg class="ico fill-gray-700" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path class="fill-gray-700" d="M474.234,284.88c23.29-23.268,37.781-55.654,37.766-91.185c0.015-35.53-14.476-67.917-37.766-91.178 c-23.261-23.298-55.64-37.788-91.185-37.766c-35.53-0.022-67.924,14.469-91.17,37.766c-23.304,23.261-37.795,55.648-37.78,91.178 c-0.015,35.53,14.476,67.916,37.78,91.185c19.268,19.297,44.809,32.517,73.21,36.488v52.976h-58.486v35.944h58.486v56.766h35.937 v-56.766h58.486v-35.944h-58.486v-52.976C429.426,317.397,454.966,304.177,474.234,284.88z M383.049,275.921 c-11.413-0.008-22.172-2.301-32.002-6.454c-14.724-6.222-27.327-16.684-36.198-29.817c-8.857-13.147-14.012-28.844-14.012-45.955 c0-11.42,2.294-22.172,6.447-31.994c6.214-14.731,16.669-27.326,29.81-36.198c13.155-8.864,28.85-14.019,45.955-14.034 c11.413,0.008,22.172,2.302,32.002,6.462c14.724,6.214,27.327,16.676,36.198,29.809c8.857,13.156,14.012,28.851,14.026,45.956 c-0.014,11.42-2.308,22.172-6.461,31.995c-6.214,14.73-16.683,27.333-29.81,36.198 C415.849,270.759,400.168,275.907,383.049,275.921z"></path> <path class="fill-gray-700" d="M146.912,202.305v-88.55l35.69,35.683l25.424-25.41l-79.075-79.082l-79.09,79.082l25.41,25.41l35.704-35.69 v88.557c-28.401,3.978-53.941,17.199-73.209,36.502C14.462,262.069-0.014,294.448,0,329.979 c-0.014,35.545,14.462,67.924,37.766,91.184c23.261,23.305,55.64,37.788,91.185,37.774c35.53,0.014,67.91-14.469,91.17-37.774 c23.304-23.261,37.78-55.64,37.78-91.184c0-35.53-14.476-67.91-37.78-91.171C200.854,219.505,175.313,206.283,146.912,202.305z M204.716,361.981c-6.229,14.73-16.683,27.326-29.81,36.198c-13.154,8.872-28.85,14.027-45.955,14.027 c-11.427,0-22.172-2.294-32.002-6.447c-14.723-6.229-27.327-16.684-36.198-29.817c-8.872-13.155-14.026-28.844-14.026-45.962 c0-11.412,2.294-22.164,6.446-31.987c6.229-14.723,16.684-27.326,29.824-36.198c13.14-8.864,28.836-14.011,45.955-14.026 c11.413,0,22.157,2.294,32.002,6.454c14.709,6.222,27.312,16.676,36.184,29.809c8.871,13.156,14.026,28.844,14.026,45.948 C211.163,341.405,208.868,352.165,204.716,361.981z"></path> </g> </g></svg>
+                            <select formControlName="gender" id="gender" class="">
+                                <option value="">Choisir un sexe</option>
+                                <option value="f">Femme</option>
+                                <option value="m">Homme</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="birthdate" class="side-group-label">Date de naissance</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="3" y="6" width="18" height="15" rx="2" class="stroke-gray-700"></rect> <path d="M3 10C3 8.11438 3 7.17157 3.58579 6.58579C4.17157 6 5.11438 6 7 6H17C18.8856 6 19.8284 6 20.4142 6.58579C21 7.17157 21 8.11438 21 10H3Z" class="fill-gray-700"></path> <path d="M7 3L7 6" class="stroke-gray-700" stroke-linecap="round"></path> <path d="M17 3L17 6" class="stroke-gray-700" stroke-linecap="round"></path> <rect x="7" y="12" width="4" height="2" rx="0.5" class="fill-gray-700"></rect> <rect x="7" y="16" width="4" height="2" rx="0.5" class="fill-gray-700"></rect> <rect x="13" y="12" width="4" height="2" rx="0.5" class="fill-gray-700"></rect> <rect x="13" y="16" width="4" height="2" rx="0.5" class="fill-gray-700"></rect> </g></svg>
+                            <input type="date" formControlName="birthdate" id="birthdate" class="">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="birthplace" class="side-group-label">Lieu de naissance</label>
+                        <div class="side-group-input">
+                            <svg class="ico fill-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></g></svg>
+                            <input type="text" formControlName="birthplace" id="birthplace" placeholder="Bobo-Dioulasso, BF" class="">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="marital" class="side-group-label">Statut marital</label>
+                        <div class="side-group-input">
+                            <svg class="ico fill-gray-700" viewBox="0 0 512 512" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="couple-marriage-heart-love-valentine"> <path d="M200,328h-16v-28.313c3.77-3.396,6.931-7.348,9.441-11.688H200c13.234,0,24-10.766,24-24c0-10.496-6.562-19.19-16-22.542 V216c0-26.51-21.49-48-48-48h-16c-26.51,0-48,21.49-48,48v25.474c-9.292,3.313-16,12.11-16,22.526c0,13.508,10.997,24,24,24h6.557 c2.51,4.342,5.673,8.294,9.443,11.685V328h-16c-17.68,0-32,14.32-32,32v64c0,8.8,7.2,16,16,16h16v-32c0-4.4,3.6-8,8-8s8,3.6,8,8v32 h64v-32c0-4.4,3.6-8,8-8s8,3.6,8,8v32h16c8.8,0,16-7.2,16-16v-64C232,342.32,217.68,328,200,328z M120,264v-16 c0-16.234,12.148-29.684,27.945-31.75c3.352,7.375,8.742,13.766,15.578,18.379c5.969,4.035,12.75,6.469,19.875,7.184 C183.805,243.82,184,245.871,184,248v16c0,10-4.789,19.574-12.836,25.629C151.048,304.895,120,291.063,120,264z M167.651,309.386 c0.113-0.039,0.236-0.05,0.349-0.089v16.965c-6.635,12.98-25.375,12.961-32,0v-16.965c0.116,0.041,0.243,0.052,0.36,0.092 C146.986,313.038,158.448,312.547,167.651,309.386z M200,272h-0.763c0.995-5.794,0.763-9.542,0.763-16 C210.527,256,210.571,272,200,272z M104,272c-10.527,0-10.571-16,0-16c0,6.474-0.233,10.197,0.763,16H104z M408,328h-16v-28.313 c1.293-1.165,2.509-2.397,3.661-3.688H416c8.836,0,16-7.164,16-16v-40c0-39.765-32.235-72-72-72s-72,32.235-72,72v40 c0,8.836,7.164,16,16,16h20.338c1.152,1.29,2.368,2.521,3.662,3.685V328h-16c-17.68,0-32,14.32-32,32v64c0,8.8,7.2,16,16,16h16v-32 c0-4.4,3.6-8,8-8s8,3.6,8,8v32h64v-32c0-4.4,3.6-8,8-8s8,3.6,8,8v32h16c8.8,0,16-7.2,16-16v-64C440,342.32,425.68,328,408,328z M349.914,294.318C336.731,290.079,328,277.506,328,264v-16c0-16.234,12.148-29.684,27.945-31.75 c3.352,7.375,8.742,13.766,15.578,18.379c5.969,4.035,12.75,6.469,19.875,7.184C391.805,243.82,392,245.871,392,248v16 c0,10-4.789,19.574-12.836,25.629C370.926,295.881,359.664,297.444,349.914,294.318z M344,309.297 c0.116,0.041,0.243,0.052,0.36,0.092c9.163,3.147,20.73,3.624,31.292-0.003c0.113-0.039,0.236-0.05,0.349-0.089v16.371 c-2.859,4.609-9.727,16.363-16,32.313c-6.273-15.949-13.141-27.703-16-32.313V309.297z M302.081,129.596l-32.5,32.855 c-7.318,7.398-19.204,7.398-26.522,0l-32.5-32.855c-11.85-11.979-13.889-31.229-3.614-44.605 c12.415-16.161,35.529-17.243,49.375-3.245c13.847-13.998,36.961-12.917,49.376,3.245 C315.97,98.366,313.93,117.617,302.081,129.596z"></path> </g> <g id="Layer_1"></g> </g></svg>
+                            <input type="text" name="marital" id="marital" placeholder="Marié avec enfant" class="">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="nin" class="side-group-label">Numéro de CNIB</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7V17C3.5 18.1046 4.39543 19 5.5 19H19.5C20.6046 19 21.5 18.1046 21.5 17V7C21.5 5.89543 20.6046 5 19.5 5H5.5C4.39543 5 3.5 5.89543 3.5 7Z" class="stroke-gray-700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M15.5 10H18.5" class="stroke-gray-700" stroke-width="1.5" stroke-linecap="round"></path> <path d="M15.5 13H18.5" class="stroke-gray-700" stroke-width="1.5" stroke-linecap="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 10C11.5 11.1046 10.6046 12 9.5 12C8.39543 12 7.5 11.1046 7.5 10C7.5 8.89543 8.39543 8 9.5 8C10.0304 8 10.5391 8.21071 10.9142 8.58579C11.2893 8.96086 11.5 9.46957 11.5 10Z" class="stroke-gray-700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M5.5 16C8.283 12.863 11.552 13.849 13.5 16" class="stroke-gray-700" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                            <input type="text" name="nin" id="nin" placeholder="B0000000" class="uppercase">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="license" class="side-group-label">Numéro de permis de conduire</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8 17H16M8 17C8 18.1046 7.10457 19 6 19C4.89543 19 4 18.1046 4 17M8 17C8 15.8954 7.10457 15 6 15C4.89543 15 4 15.8954 4 17M16 17C16 18.1046 16.8954 19 18 19C19.1046 19 20 18.1046 20 17M16 17C16 15.8954 16.8954 15 18 15C19.1046 15 20 15.8954 20 17M10 5V11M4 11L4.33152 9.01088C4.56901 7.58593 4.68776 6.87345 5.0433 6.3388C5.35671 5.8675 5.79705 5.49447 6.31346 5.26281C6.8993 5 7.6216 5 9.06621 5H12.4311C13.3703 5 13.8399 5 14.2662 5.12945C14.6436 5.24406 14.9946 5.43194 15.2993 5.68236C15.6435 5.96523 15.904 6.35597 16.425 7.13744L19 11M4 17H3.6C3.03995 17 2.75992 17 2.54601 16.891C2.35785 16.7951 2.20487 16.6422 2.10899 16.454C2 16.2401 2 15.9601 2 15.4V14.2C2 13.0799 2 12.5198 2.21799 12.092C2.40973 11.7157 2.71569 11.4097 3.09202 11.218C3.51984 11 4.0799 11 5.2 11H17.2C17.9432 11 18.3148 11 18.6257 11.0492C20.3373 11.3203 21.6797 12.6627 21.9508 14.3743C22 14.6852 22 15.0568 22 15.8C22 15.9858 22 16.0787 21.9877 16.1564C21.9199 16.5843 21.5843 16.9199 21.1564 16.9877C21.0787 17 20.9858 17 20.8 17H20" class="stroke-gray-700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            <input type="text" name="license" id="license" placeholder="000 000 000 000 E" class="uppercase">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Filiation-->
+        <div class="px-12 py-8 bg-white">
+            <div class="side-form">
+                <div class="side-title">
+                    <label for="" class="">Filiation</label>
+                </div>
+                <div class="side-container">
+                    <div class="side-group">
+                        <label for="mother" class="side-group-label">Mère</label>
+                        <div class="side-group-input">
+                            <svg class="w-4 fill-gray-700" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path class="fill-gray-700" d="M256,265.308c73.252,0,132.644-59.391,132.644-132.654C388.644,59.412,329.252,0,256,0 c-73.262,0-132.643,59.412-132.643,132.654C123.357,205.917,182.738,265.308,256,265.308z"></path> <path class="fill-gray-700" d="M425.874,393.104c-5.922-35.474-36-84.509-57.552-107.465c-5.829-6.212-15.948-3.628-19.504-1.427 c-27.04,16.672-58.782,26.399-92.819,26.399c-34.036,0-65.778-9.727-92.818-26.399c-3.555-2.201-13.675-4.785-19.505,1.427 c-21.55,22.956-51.628,71.991-57.551,107.465C71.573,480.444,164.877,512,256,512C347.123,512,440.427,480.444,425.874,393.104z"></path> </g> </g></svg>
+                            <input type="text" name="mother" id="mother" placeholder="-" class=" capitalize">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="father" class="side-group-label">Père</label>
+                        <div class="side-group-input">
+                            <svg class="w-4 fill-gray-700" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path class="fill-gray-700" d="M256,265.308c73.252,0,132.644-59.391,132.644-132.654C388.644,59.412,329.252,0,256,0 c-73.262,0-132.643,59.412-132.643,132.654C123.357,205.917,182.738,265.308,256,265.308z"></path> <path class="fill-gray-700" d="M425.874,393.104c-5.922-35.474-36-84.509-57.552-107.465c-5.829-6.212-15.948-3.628-19.504-1.427 c-27.04,16.672-58.782,26.399-92.819,26.399c-34.036,0-65.778-9.727-92.818-26.399c-3.555-2.201-13.675-4.785-19.505,1.427 c-21.55,22.956-51.628,71.991-57.551,107.465C71.573,480.444,164.877,512,256,512C347.123,512,440.427,480.444,425.874,393.104z"></path> </g> </g></svg>
+                            <input type="text" name="father" id="father" placeholder="-" class=" capitalize">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Contact-->
+        <div class="px-12 py-8 bg-white">
+            <div class="side-form">
+                <div class="side-title">
+                    <label for="phone" class="">Contact</label>
+                </div>
+                <div class="side-container">
+                    <div class="side-group">
+                        <label for="phone" class="side-group-label">Téléphone</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z" class="fill-gray-700"></path> </g></svg>
+                            <input type="text" formControlName="phone" id="phone" placeholder="(226) 01 02 03 04" class=" uppercase">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="email" class="side-group-label">Email</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12ZM16 12V13.5C16 14.8807 17.1193 16 18.5 16V16C19.8807 16 21 14.8807 21 13.5V12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H16" class="stroke-gray-700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            <input type="email" formControlName="email" id="email" placeholder="kkienou@ekossinnes.bf" class="">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="address" class="side-group-label">Adresse</label>
+                        <div class="side-group-input">
+                            <svg class="ico fill-gray-700 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 1012.8c-253.6 0-511.2-54.4-511.2-158.4 0-92.8 198.4-131.2 283.2-143.2h3.2c12 0 22.4 8.8 24 20.8 0.8 6.4-0.8 12.8-4.8 17.6-4 4.8-9.6 8.8-16 9.6-176.8 25.6-242.4 72-242.4 96 0 44.8 180.8 110.4 463.2 110.4s463.2-65.6 463.2-110.4c0-24-66.4-70.4-244.8-96-6.4-0.8-12-4-16-9.6-4-4.8-5.6-11.2-4.8-17.6 1.6-12 12-20.8 24-20.8h3.2c85.6 12 285.6 50.4 285.6 143.2 0.8 103.2-256 158.4-509.6 158.4z m-16.8-169.6c-12-11.2-288.8-272.8-288.8-529.6 0-168 136.8-304.8 304.8-304.8S816 145.6 816 313.6c0 249.6-276.8 517.6-288.8 528.8l-16 16-16-15.2zM512 56.8c-141.6 0-256.8 115.2-256.8 256.8 0 200.8 196 416 256.8 477.6 61.6-63.2 257.6-282.4 257.6-477.6C768.8 172.8 653.6 56.8 512 56.8z m0 392.8c-80 0-144.8-64.8-144.8-144.8S432 160 512 160c80 0 144.8 64.8 144.8 144.8 0 80-64.8 144.8-144.8 144.8zM512 208c-53.6 0-96.8 43.2-96.8 96.8S458.4 401.6 512 401.6c53.6 0 96.8-43.2 96.8-96.8S564.8 208 512 208z" fill=""></path></g></svg>
+                            <input type="text" formControlName="address" id="address" placeholder="Bobo-Dioulasso, Bobo 2010, BF" class="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Info donneur-->
+        <div class="px-12 py-8 bg-white">
+            <div class="side-form">
+                <div class="side-title">
+                    <label for="" class="">Informations donneur</label>
+                </div>
+                <div class="side-container">
+                    <div class="side-group">
+                        <label for="donorNo" class="side-group-label">N° de donneur</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z" class="fill-gray-700"></path> </g></svg>
+                            <input type="text" formControlName="donorNo" id="donorNo" placeholder="C01N84484F" class="uppercase">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="eligible" class="side-group-label">Eligibilité</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12ZM16 12V13.5C16 14.8807 17.1193 16 18.5 16V16C19.8807 16 21 14.8807 21 13.5V12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H16" class="stroke-gray-700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            <input type="checkbox" name="eligible" id="eligible" placeholder="kkienou@ekossinnes.bf" class="">
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="bloodGroup" class="side-group-label">Group Sanguin</label>
+                        <div class="side-group-input">
+                            <svg class="ico fill-gray-700 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 1012.8c-253.6 0-511.2-54.4-511.2-158.4 0-92.8 198.4-131.2 283.2-143.2h3.2c12 0 22.4 8.8 24 20.8 0.8 6.4-0.8 12.8-4.8 17.6-4 4.8-9.6 8.8-16 9.6-176.8 25.6-242.4 72-242.4 96 0 44.8 180.8 110.4 463.2 110.4s463.2-65.6 463.2-110.4c0-24-66.4-70.4-244.8-96-6.4-0.8-12-4-16-9.6-4-4.8-5.6-11.2-4.8-17.6 1.6-12 12-20.8 24-20.8h3.2c85.6 12 285.6 50.4 285.6 143.2 0.8 103.2-256 158.4-509.6 158.4z m-16.8-169.6c-12-11.2-288.8-272.8-288.8-529.6 0-168 136.8-304.8 304.8-304.8S816 145.6 816 313.6c0 249.6-276.8 517.6-288.8 528.8l-16 16-16-15.2zM512 56.8c-141.6 0-256.8 115.2-256.8 256.8 0 200.8 196 416 256.8 477.6 61.6-63.2 257.6-282.4 257.6-477.6C768.8 172.8 653.6 56.8 512 56.8z m0 392.8c-80 0-144.8-64.8-144.8-144.8S432 160 512 160c80 0 144.8 64.8 144.8 144.8 0 80-64.8 144.8-144.8 144.8zM512 208c-53.6 0-96.8 43.2-96.8 96.8S458.4 401.6 512 401.6c53.6 0 96.8-43.2 96.8-96.8S564.8 208 512 208z" fill=""></path></g></svg>
+                            <!--select name="bloodGroup" id="bloodGroup" class="">
+                                <option value="">Choisir le groupe sanguin</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                            </!--select-->
+                            <input type="text" formControlName="bloodGroup" id="bloodGroup" class="" readonly>
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="rhesus" class="side-group-label">Rhesus</label>
+                        <div class="side-group-input">
+                            <svg class="ico fill-gray-700 icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M512 1012.8c-253.6 0-511.2-54.4-511.2-158.4 0-92.8 198.4-131.2 283.2-143.2h3.2c12 0 22.4 8.8 24 20.8 0.8 6.4-0.8 12.8-4.8 17.6-4 4.8-9.6 8.8-16 9.6-176.8 25.6-242.4 72-242.4 96 0 44.8 180.8 110.4 463.2 110.4s463.2-65.6 463.2-110.4c0-24-66.4-70.4-244.8-96-6.4-0.8-12-4-16-9.6-4-4.8-5.6-11.2-4.8-17.6 1.6-12 12-20.8 24-20.8h3.2c85.6 12 285.6 50.4 285.6 143.2 0.8 103.2-256 158.4-509.6 158.4z m-16.8-169.6c-12-11.2-288.8-272.8-288.8-529.6 0-168 136.8-304.8 304.8-304.8S816 145.6 816 313.6c0 249.6-276.8 517.6-288.8 528.8l-16 16-16-15.2zM512 56.8c-141.6 0-256.8 115.2-256.8 256.8 0 200.8 196 416 256.8 477.6 61.6-63.2 257.6-282.4 257.6-477.6C768.8 172.8 653.6 56.8 512 56.8z m0 392.8c-80 0-144.8-64.8-144.8-144.8S432 160 512 160c80 0 144.8 64.8 144.8 144.8 0 80-64.8 144.8-144.8 144.8zM512 208c-53.6 0-96.8 43.2-96.8 96.8S458.4 401.6 512 401.6c53.6 0 96.8-43.2 96.8-96.8S564.8 208 512 208z" fill=""></path></g></svg>
+                            <select name="rhesus" id="rhesus" class="">
+                                <option value="">Choisir le rhésus</option>
+                                <option value="+">+</option>
+                                <option value="-">-</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="side-group">
+                        <label for="last_donation" class="side-group-label">Dernier don</label>
+                        <div class="side-group-input">
+                            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.5562 12.9062L16.1007 13.359C16.1007 13.359 15.0181 14.4355 12.0631 11.4972C9.10812 8.55901 10.1907 7.48257 10.1907 7.48257L10.4775 7.19738C11.1841 6.49484 11.2507 5.36691 10.6342 4.54348L9.37326 2.85908C8.61028 1.83992 7.13596 1.70529 6.26145 2.57483L4.69185 4.13552C4.25823 4.56668 3.96765 5.12559 4.00289 5.74561C4.09304 7.33182 4.81071 10.7447 8.81536 14.7266C13.0621 18.9492 17.0468 19.117 18.6763 18.9651C19.1917 18.9171 19.6399 18.6546 20.0011 18.2954L21.4217 16.883C22.3806 15.9295 22.1102 14.2949 20.8833 13.628L18.9728 12.5894C18.1672 12.1515 17.1858 12.2801 16.5562 12.9062Z" class="fill-gray-700"></path> </g></svg>
+                            <input type="date" name="last_donation" id="last_donation" placeholder="C01N84484F" class="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--Autre info-->
+    <div class="mt-12">
+        <div class="space-y-3">
+            <h4 class="text-2xl text-gray-700 font-medium font-sans">Autres</h4>
+            <hr class="bg-gray-600">
+        </div>
+
+        <div class="columns-2 gap-16 mt-8 space-y-6">
+            <div class="break-inside-avoid bg-white px-6 py-4 rounded-xl space-y-4">
+                <div class="flex justify-between items-start gap-12">
+                    <span class="bg-red-100 rounded-lg p-3">
+                        <svg class="w-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0_2012_135" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                                <path d="M31.1466 0.126709H0.946533V31.974H31.1466V0.126709Z" fill="white"/>
+                            </mask>
+                            <g mask="url(#mask0_2012_135)">
+                                <path d="M29.3769 14.2503C30.434 14.3326 30.9393 14.9162 30.9832 15.8563C31.0244 16.742 31.0602 17.6447 30.9364 18.517C30.7764 19.6456 30.3252 19.9605 29.1766 20.0373C29.0132 20.0481 28.8505 20.0639 28.6125 20.0837C28.6125 20.5504 28.6388 21.0117 28.6037 21.4687C28.5748 21.7939 28.5035 22.1137 28.3912 22.4201C28.3416 22.555 28.2477 22.669 28.1252 22.7435C28.0022 22.8179 27.8579 22.8487 27.7155 22.8305C27.4109 22.8142 27.157 22.6586 27.092 22.349C27.0215 22.0324 26.9933 21.7076 27.0079 21.3832C27.0508 20.981 27.1141 20.5808 27.1976 20.1847C27.025 20.1603 26.8881 20.1435 26.7519 20.121C26.0705 20.0071 25.6971 19.6364 25.6758 18.9443C25.6394 17.7717 25.6331 16.5978 25.6438 15.4246C25.6488 14.865 25.9264 14.5787 26.4948 14.4736C26.7893 14.4187 27.0913 14.4063 27.4402 14.3693C27.3837 13.1201 27.3268 11.9057 27.2744 10.6913C27.2168 9.35977 26.1374 8.40574 25.1634 8.28754C24.0628 8.15383 22.896 8.68399 22.2934 9.91423C21.8707 10.809 21.6363 11.7811 21.6045 12.7702C21.4922 15.1619 21.4524 17.5572 21.4027 19.9514C21.3615 21.9221 21.382 23.8946 21.31 25.864C21.2689 27.0024 20.8834 28.0659 20.3111 29.0583C19.3384 30.7449 17.8193 31.5677 15.944 31.7729C14.751 31.9034 13.5541 31.8865 12.3816 31.5395C10.8614 31.089 9.72352 30.216 9.03812 28.7492C8.18401 26.9215 7.76627 25.0284 7.97657 23.0099C8.01514 22.6393 8.02449 22.2651 8.05141 21.8243C7.67335 21.7891 7.33166 21.7659 6.99231 21.7243C6.39149 21.6505 6.1856 21.4961 6.17516 21.1341C6.165 20.7858 6.37226 20.6097 6.94249 20.4777C7.0086 20.4591 7.07373 20.4371 7.13757 20.4119C7.0747 19.6333 7.05079 19.5656 6.34769 19.4005C5.43523 19.1862 4.51043 19.0242 3.59167 18.8367C3.408 18.7992 3.22597 18.7527 3.04546 18.702C2.1249 18.4439 1.67407 17.9521 1.59926 17.0247C1.39925 14.5439 1.1364 12.0638 1.06474 9.57859C1.00873 7.63646 1.20119 5.68718 1.2852 3.7412C1.28881 3.62374 1.30332 3.50689 1.32856 3.39211C1.88631 1.01194 2.66246 0.614946 4.78703 0.360579C7.59881 0.0238475 10.4195 0.21313 13.2271 0.497148C14.5654 0.6325 15.4324 1.45904 15.9627 2.65841C16.4254 3.70539 16.5309 4.83265 16.661 5.95033C16.9822 8.70953 16.9701 11.4824 16.941 14.2545C16.9376 14.5831 16.9295 14.9126 16.9045 15.2401C16.7672 17.0395 15.8599 18.17 14.138 18.7221C13.4692 18.9365 12.8005 19.1568 12.1492 19.4179C11.8472 19.5537 11.5911 19.7741 11.4118 20.0525C11.6095 20.0525 11.8073 20.0462 12.0047 20.0536C12.6095 20.0763 13.0033 20.4135 13.0166 20.9139C13.0303 21.4394 12.6149 21.827 11.9855 21.8297C11.5402 21.8316 11.095 21.7747 10.6491 21.7586C10.2987 21.7458 9.9474 21.7561 9.51349 21.7561C9.51349 22.3649 9.515 22.9422 9.51349 23.5192C9.50868 25.0238 9.87823 26.4356 10.4793 27.8114C11.0048 29.0144 11.8897 29.6965 13.1433 29.9828C14.1547 30.2116 15.2019 30.2325 16.2217 30.0447C17.8776 29.7494 18.9988 28.5712 19.3273 26.7261C19.4769 25.8471 19.5503 24.9567 19.5469 24.0651C19.5509 22.7272 19.4575 21.3892 19.4212 20.0509C19.3432 17.1853 19.3164 14.3171 19.7955 11.4809C19.9457 10.6039 20.221 9.75298 20.6131 8.95425C21.7043 6.74169 24.61 5.76392 26.6879 6.86403C28.1294 7.62713 29.0289 8.82387 29.2069 10.4606C29.3282 11.5779 29.3255 12.7089 29.3769 13.8338C29.3815 13.9481 29.3769 14.0631 29.3769 14.2503ZM2.85285 9.69941C5.18182 8.90117 5.76579 8.89621 8.31029 9.31023C9.51577 9.49179 10.7316 9.59636 11.9504 9.62335C12.4445 9.63995 12.9618 9.46207 13.44 9.29239C13.9821 9.10022 14.4924 8.81782 15.0981 8.53656C14.9855 7.35078 14.8885 6.0909 14.7357 4.83788C14.6681 4.28014 14.5374 3.73185 14.3463 3.2035C14.0659 2.43353 13.4815 1.98178 12.645 1.9406C11.0526 1.86359 9.458 1.75376 7.8651 1.76213C6.74037 1.7737 5.61844 1.87629 4.51028 2.06892C3.42239 2.25341 3.1049 2.78973 3.15804 4.0219C3.54965 4.00362 3.94196 4.00709 4.33319 4.03234C4.64891 4.06762 4.92637 4.24582 4.93887 4.61192C4.94998 4.9385 4.71634 5.12477 4.43549 5.21592C4.21015 5.27783 3.97938 5.31782 3.74636 5.33537C3.49638 5.36515 3.24436 5.37653 2.94812 5.39987C2.92493 5.75952 2.90475 6.07331 2.87949 6.45604C3.21389 6.43146 3.46507 6.40732 3.71685 6.39647C3.92648 6.38018 4.13712 6.38076 4.34666 6.39827C4.50118 6.40559 4.64851 6.4657 4.76404 6.56856C4.87958 6.6714 4.95638 6.81078 4.98156 6.96339C5.05487 7.32677 4.93132 7.63027 4.60091 7.79021C4.36658 7.89227 4.11785 7.95753 3.86359 7.98363C3.54238 8.0277 3.21554 8.02962 2.85217 8.05227L2.85285 9.69941ZM9.84638 20.187C9.94054 19.3568 10.1503 18.6359 10.8485 18.2652C11.6721 17.8275 12.5507 17.4925 13.4067 17.1139C13.7355 16.9909 14.0564 16.8476 14.3676 16.6849C14.9009 16.3643 15.2102 15.9099 15.1905 15.2396C15.1506 13.8775 15.1504 12.5145 15.1356 11.1519C15.1326 10.8786 15.1356 10.6053 15.1356 10.2377C14.9388 10.3373 14.7475 10.4477 14.5627 10.5682C13.8111 11.1346 12.9395 11.321 12.0349 11.2776C11.0281 11.2293 10.0224 11.1137 9.02262 10.9795C8.00006 10.8422 6.98972 10.6098 5.9658 10.4879C5.14346 10.3688 4.30473 10.5226 3.57818 10.9258C3.18366 11.1526 2.87154 11.4466 2.95211 12.0389C3.21788 12.0096 3.44395 11.9684 3.67071 11.964C3.9022 11.9558 4.13385 11.9722 4.36187 12.0127C4.52856 12.0322 4.68204 12.113 4.79241 12.2394C4.90275 12.3659 4.96211 12.5289 4.95889 12.6966C4.96328 13.0647 4.72184 13.31 4.39088 13.4261C4.18765 13.4805 3.97785 13.5062 3.76751 13.5027C3.53882 13.5146 3.30886 13.5054 3.06014 13.5054V14.6371C3.41923 14.6559 3.72509 14.6478 4.02282 14.6928C4.48956 14.7634 4.70301 14.9867 4.71015 15.3517C4.71784 15.7434 4.47201 15.9876 3.98027 16.0418C3.68748 16.0742 3.39001 16.0716 3.08237 16.0853V16.9501C3.35199 17.0116 3.5977 17.0723 3.84548 17.1237C4.94667 17.3522 6.05134 17.5648 7.14896 17.8089C8.12361 18.026 8.66075 18.693 8.90976 19.6266C8.96288 19.8252 9.01956 20.0229 9.08423 20.2539L9.84638 20.187ZM26.886 15.768C26.9832 16.6759 27.0719 17.5044 27.1639 18.3624H29.268C29.3238 17.4885 29.3778 16.6437 29.434 15.768H26.886Z" fill="#CA0205"/>
+                            </g>
+                        </svg>
+                    </span>
+
+                    <a href="" class="">
+                        <svg class="w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 34L34 14M34 14H16M34 14V32" stroke="#585858" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </a>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-sm font-bold text-gray-950 font-sans">Liste de dons</p>
+                    <p class="text-xs/5 text-gray-600 font-sans">Une liste des campagnes de don auxquel le donneur à participez. Appuyez sur la flèche en haut à droite pour en savoir plus</p>
+                </div>
+
+                <div class="w-full">
+                    <span class="text-2xl text-red-600 font-bold font-sans">9</span>
+                </div>
+            </div>
+
+            <div class="break-inside-avoid w-full bg-white px-6 py-4 rounded-xl space-y-4">
+                <div class="flex justify-between items-start gap-12">
+                    <span class="bg-green-100 rounded-lg p-3">
+                        <svg class="w-6" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.1666 9.89636L12.0833 6.28793M9.89646 14.1667L6.28803 12.0834M8.33341 20.0001H4.16675M8.33341 20.0001C8.33341 26.4434 13.5568 31.6667 20.0001 31.6667M8.33341 20.0001C8.33341 13.5568 13.5568 8.33341 20.0001 8.33341M20.0001 31.6667V35.8334M20.0001 31.6667C26.4434 31.6667 31.6667 26.4434 31.6667 20.0001M20.0001 8.33341C26.4434 8.33341 31.6667 13.5568 31.6667 20.0001M20.0001 8.33341V4.16675M9.89636 25.8334L6.28793 27.9167M14.1666 30.1039L12.0833 33.7123M31.6667 20.0001H35.8334M27.9169 33.7123L25.8336 30.1039M33.7123 27.9167L30.1038 25.8334M33.7123 12.0834L30.1038 14.1667M25.0001 25.0001V25.0167M27.9169 6.28793L25.8336 9.89636M13.3334 18.3334V18.3501M18.3334 25.0001C18.3334 25.9206 17.5872 26.6667 16.6667 26.6667C15.7463 26.6667 15.0001 25.9206 15.0001 25.0001C15.0001 24.0796 15.7463 23.3334 16.6667 23.3334C17.5872 23.3334 18.3334 24.0796 18.3334 25.0001ZM25.0001 16.6667C25.0001 18.5077 23.5077 20.0001 21.6667 20.0001C19.8257 20.0001 18.3334 18.5077 18.3334 16.6667C18.3334 14.8258 19.8257 13.3334 21.6667 13.3334C23.5077 13.3334 25.0001 14.8258 25.0001 16.6667Z" stroke="#009812" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </span>
+
+                    <a href="" class="">
+                        <svg class="w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 34L34 14M34 14H16M34 14V32" stroke="#585858" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </a>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-sm font-bold text-gray-950 font-sans">Liste des antécédents</p>
+                    <p class="text-xs/5 text-gray-600 font-sans">Une liste des campagnes de don auxquel le donneur à participez. Appuyez sur la flèche en haut à droite pour en savoir plus</p>
+                </div>
+
+                <div class="w-full">
+                    <span class="text-2xl text-green-600 font-bold font-sans">9</span>
+                </div>
+            </div>
+
+            <div class="break-inside-avoid w-full bg-white px-6 py-4 rounded-xl space-y-4">
+                <div class="flex justify-between items-start gap-12">
+                    <span class="bg-red-100 rounded-lg p-3">
+                        <svg class="w-6" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_2012_393)">
+                                <mask id="mask0_2012_393" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="10" width="30" height="30">
+                            <path d="M30 10H0V40H30V10Z" fill="white"/>
+                            </mask>
+                            <g mask="url(#mask0_2012_393)">
+                                <path d="M28.2421 23.3043C29.2921 23.3819 29.7941 23.9316 29.8377 24.8172C29.8786 25.6515 29.9142 26.5019 29.7912 27.3235C29.6322 28.3867 29.1841 28.6833 28.043 28.7556C27.8808 28.7658 27.7191 28.7807 27.4827 28.7993C27.4827 29.239 27.5089 29.6735 27.474 30.104C27.4453 30.4104 27.3744 30.7116 27.2629 31.0002C27.2136 31.1273 27.1203 31.2347 26.9986 31.3048C26.8764 31.375 26.7331 31.4039 26.5916 31.3868C26.2891 31.3714 26.0368 31.2248 25.9722 30.9333C25.9022 30.635 25.8742 30.329 25.8887 30.0234C25.9313 29.6446 25.9943 29.2676 26.0772 28.8945C25.9057 28.8715 25.7697 28.8557 25.6344 28.8345C24.9575 28.7272 24.5866 28.378 24.5655 27.7261C24.5293 26.6215 24.5231 25.5156 24.5337 24.4105C24.5387 23.8833 24.8144 23.6137 25.3791 23.5147C25.6716 23.4629 25.9716 23.4513 26.3182 23.4164C26.2621 22.2397 26.2055 21.0957 26.1534 19.9518C26.0963 18.6975 25.024 17.7988 24.0564 17.6874C22.9632 17.5615 21.804 18.0609 21.2055 19.2198C20.7856 20.0627 20.5527 20.9783 20.5211 21.9101C20.4096 24.163 20.37 26.4194 20.3206 28.6747C20.2797 30.5311 20.3 32.3892 20.2286 34.2444C20.1877 35.3167 19.8048 36.3186 19.2363 37.2534C18.27 38.8422 16.761 39.6172 14.8981 39.8105C13.713 39.9335 12.5241 39.9175 11.3593 39.5906C9.84916 39.1663 8.71883 38.3439 8.03797 36.9622C7.18952 35.2405 6.77455 33.4573 6.98346 31.5558C7.02177 31.2067 7.03105 30.8543 7.05779 30.4389C6.68224 30.4058 6.34281 30.384 6.00571 30.3448C5.40887 30.2752 5.20434 30.1298 5.19398 29.7888C5.18388 29.4607 5.38977 29.2949 5.95622 29.1705C6.0219 29.153 6.0866 29.1323 6.15001 29.1085C6.08755 28.3751 6.0638 28.3113 5.36536 28.1558C4.45895 27.9539 3.54027 27.8013 2.6276 27.6247C2.44514 27.5894 2.26433 27.5455 2.085 27.4978C1.17054 27.2547 0.722702 26.7914 0.648384 25.9178C0.449701 23.5809 0.188592 21.2446 0.11741 18.9036C0.061773 17.0741 0.252949 15.2379 0.336404 13.4048C0.339995 13.2942 0.354409 13.1841 0.379482 13.076C0.933531 10.8339 1.70455 10.4599 3.81504 10.2203C6.60819 9.90308 9.41019 10.0814 12.1992 10.3489C13.5287 10.4764 14.3899 11.255 14.9167 12.3848C15.3763 13.3711 15.4811 14.4329 15.6103 15.4858C15.9294 18.0849 15.9174 20.697 15.8885 23.3083C15.8851 23.6178 15.8771 23.9282 15.8523 24.2367C15.7159 25.9317 14.8145 26.9966 13.104 27.5167C12.4397 27.7187 11.7754 27.9262 11.1285 28.1722C10.8285 28.3 10.574 28.5077 10.396 28.77C10.5923 28.77 10.7888 28.764 10.9849 28.771C11.5857 28.7923 11.9768 29.1101 11.99 29.5814C12.0037 30.0764 11.5911 30.4415 10.9658 30.4441C10.5235 30.4458 10.0812 30.3922 9.63832 30.3771C9.29018 30.3651 8.94122 30.3747 8.51019 30.3747C8.51019 30.9482 8.51169 31.492 8.51019 32.0356C8.50542 33.4529 8.87252 34.7828 9.46965 36.0788C9.99166 37.212 10.8707 37.8545 12.1159 38.1242C13.1206 38.3398 14.1609 38.3595 15.174 38.1826C16.8189 37.9044 17.9326 36.7946 18.259 35.0565C18.4076 34.2284 18.4805 33.3897 18.4771 32.5498C18.4811 31.2895 18.3884 30.0291 18.3522 28.7684C18.2748 26.0691 18.2482 23.3672 18.7241 20.6956C18.8733 19.8694 19.1468 19.0679 19.5363 18.3155C20.6202 16.2312 23.5067 15.3102 25.5708 16.3465C27.0027 17.0653 27.8963 18.1926 28.0731 19.7344C28.1937 20.7869 28.1909 21.8523 28.2421 22.912C28.2466 23.0197 28.2421 23.128 28.2421 23.3043ZM1.89367 19.0174C4.20722 18.2655 4.78732 18.2608 7.31496 18.6508C8.51246 18.8218 9.72022 18.9203 10.9309 18.9457C11.4218 18.9614 11.9357 18.7938 12.4107 18.634C12.9492 18.453 13.4561 18.187 14.0578 17.922C13.9459 16.805 13.8496 15.6182 13.6979 14.4379C13.6306 13.9125 13.5009 13.396 13.311 12.8983C13.0324 12.173 12.4519 11.7474 11.6209 11.7086C10.0391 11.6361 8.45507 11.5326 6.87272 11.5405C5.75544 11.5514 4.64095 11.6481 3.54013 11.8295C2.45944 12.0033 2.14405 12.5085 2.19684 13.6692C2.58586 13.652 2.97557 13.6553 3.36421 13.6791C3.67783 13.7123 3.95345 13.8801 3.96588 14.225C3.97691 14.5327 3.74482 14.7081 3.46583 14.794C3.24198 14.8523 3.01274 14.89 2.78127 14.9065C2.53294 14.9346 2.28259 14.9453 1.98831 14.9673C1.96527 15.306 1.94523 15.6016 1.92014 15.9622C2.25232 15.939 2.50184 15.9163 2.75195 15.906C2.96019 15.8907 3.16943 15.8913 3.37759 15.9077C3.53109 15.9146 3.67744 15.9713 3.79221 16.0682C3.90698 16.165 3.98327 16.2963 4.00828 16.4401C4.0811 16.7824 3.95838 17.0683 3.63015 17.2189C3.39737 17.3151 3.1503 17.3766 2.89772 17.4011C2.57863 17.4427 2.25396 17.4445 1.893 17.4658L1.89367 19.0174ZM8.84087 28.8967C8.93441 28.1146 9.1428 27.4355 9.83634 27.0864C10.6545 26.674 11.5273 26.3584 12.3776 26.0018C12.7043 25.886 13.0231 25.751 13.3322 25.5977C13.8619 25.2957 14.1691 24.8676 14.1496 24.2362C14.1099 22.9532 14.1098 21.6692 14.0951 20.3856C14.0921 20.1282 14.0951 19.8707 14.0951 19.5244C13.8995 19.6183 13.7096 19.7223 13.5259 19.8358C12.7793 20.3693 11.9135 20.5449 11.0149 20.5041C10.0148 20.4586 9.01571 20.3497 8.02257 20.2232C7.00679 20.0939 6.00314 19.875 4.986 19.7602C4.16911 19.6479 3.33593 19.7928 2.6142 20.1726C2.22229 20.3863 1.91224 20.6633 1.99228 21.2212C2.25628 21.1936 2.48086 21.1548 2.70612 21.1506C2.93607 21.1429 3.16619 21.1583 3.3927 21.1965C3.55828 21.2149 3.71074 21.291 3.82038 21.4101C3.93 21.5292 3.98896 21.6827 3.98576 21.8408C3.99012 22.1875 3.75028 22.4185 3.42151 22.5279C3.21963 22.5791 3.01122 22.6034 2.80227 22.6001C2.5751 22.6113 2.34666 22.6026 2.09959 22.6026V23.6687C2.4563 23.6864 2.76014 23.6787 3.05589 23.7212C3.51954 23.7876 3.73158 23.998 3.73867 24.3418C3.74631 24.7108 3.5021 24.9408 3.01363 24.9919C2.72278 25.0224 2.42727 25.02 2.12167 25.0329V25.8475C2.3895 25.9055 2.63359 25.9626 2.87972 26.011C3.97363 26.2263 5.07098 26.4266 6.16133 26.6565C7.12951 26.861 7.6631 27.4893 7.91046 28.3687C7.96323 28.5558 8.01954 28.742 8.08378 28.9597L8.84087 28.8967ZM25.7676 24.7339C25.8642 25.5892 25.9523 26.3697 26.0437 27.1779H28.1338C28.1893 26.3547 28.2429 25.5589 28.2988 24.7339H25.7676Z" fill="#CA0205"/>
+                            </g>
+                                <path d="M23.75 8.75H31.25M31.25 8.75H38.75M31.25 8.75V16.25M31.25 8.75V1.25" stroke="#CA0205" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_2012_393">
+                                <rect width="40" height="40" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </span>
+
+                    <a href="" class="">
+                        <svg class="w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 34L34 14M34 14H16M34 14V32" stroke="#585858" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </a>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-sm font-bold text-gray-950 font-sans">Nouveau don</p>
+                    <p class="text-xs/5 text-gray-600 font-sans">Enregistrer un nouveau don</p>
+                </div>
+            </div>
+
+            <div class="break-inside-avoid w-full bg-white px-6 py-4 rounded-xl space-y-4">
+                <div class="flex justify-between items-start gap-12">
+                    <span class="bg-blue-100 rounded-lg p-3">
+                        <svg class="w-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.63989 2H22.3599" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M19.8133 8.36V2H12.1866V8.36L3.59995 25.5333C3.38939 25.9468 3.27542 26.4027 3.26662 26.8667C3.26132 27.2762 3.33742 27.6828 3.4905 28.0627C3.64358 28.4427 3.8706 28.7884 4.15837 29.0799C4.44614 29.3714 4.78894 29.6028 5.16687 29.7608C5.5448 29.9187 5.95034 30 6.35995 30H25.6399C26.0462 30 26.4484 29.92 26.8237 29.7645C27.199 29.6091 27.54 29.3812 27.8273 29.094C28.1145 28.8067 28.3424 28.4657 28.4978 28.0904C28.6533 27.7151 28.7333 27.3129 28.7333 26.9067C28.7245 26.4427 28.6105 25.9868 28.3999 25.5733L19.8133 8.36Z" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M9.18652 14.3466C15.8532 11.4533 16.2665 16.8799 23.0799 14.8933" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M9.63989 24.9067H12.1866" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M13.4534 19.8132H16" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M19.8132 22.3601H22.3599" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                        </svg>
+                    </span>
+
+                    <a href="" class="">
+                        <svg class="w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 34L34 14M34 14H16M34 14V32" stroke="#585858" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </a>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-sm font-bold text-gray-950 font-sans">Liste des examens</p>
+                    <p class="text-xs/5 text-gray-600 font-sans">Une liste des campagnes de don auxquel le donneur à participez. Appuyez sur la flèche en haut à droite pour en savoir plus</p>
+                </div>
+
+                <div class="w-full flex flex-col">
+                    <span class="text-2xl text-blue-600 font-bold font-sans">26</span>
+                    <span class="text-sm text-gray-600 font-medium font-sans">1 en cours</span>
+                </div>
+            </div>
+
+            <div class="break-inside-avoid w-full bg-white px-6 py-4 rounded-xl space-y-4">
+                <div class="flex justify-between items-start gap-12">
+                    <span class="bg-blue-100 rounded-lg p-3">
+                        <svg class="w-6" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.63989 2H22.3599" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M19.8133 8.36V2H12.1866V8.36L3.59995 25.5333C3.38939 25.9468 3.27542 26.4027 3.26662 26.8667C3.26132 27.2762 3.33742 27.6828 3.4905 28.0627C3.64358 28.4427 3.8706 28.7884 4.15837 29.0799C4.44614 29.3714 4.78894 29.6028 5.16687 29.7608C5.5448 29.9187 5.95034 30 6.35995 30H25.6399C26.0462 30 26.4484 29.92 26.8237 29.7645C27.199 29.6091 27.54 29.3812 27.8273 29.094C28.1145 28.8067 28.3424 28.4657 28.4978 28.0904C28.6533 27.7151 28.7333 27.3129 28.7333 26.9067C28.7245 26.4427 28.6105 25.9868 28.3999 25.5733L19.8133 8.36Z" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M9.18652 14.3466C15.8532 11.4533 16.2665 16.8799 23.0799 14.8933" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M9.63989 24.9067H12.1866" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M13.4534 19.8132H16" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                            <path d="M19.8132 22.3601H22.3599" stroke="#0E00D4" stroke-width="1.91" stroke-miterlimit="10"/>
+                        </svg>
+                    </span>
+
+                    <a href="" class="">
+                        <svg class="w-8" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 34L34 14M34 14H16M34 14V32" stroke="#585858" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+
+                    </a>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="text-sm font-bold text-gray-950 font-sans">Nouvel Examen</p>
+                    <p class="text-xs/5 text-gray-600 font-sans">Enregistrer un nouvel examen</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

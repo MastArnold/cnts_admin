@@ -1,48 +1,121 @@
-<div>
-    <!-- Search Input -->
-    <div class="flex justify-center items-center gap-3 w-full">
-        <div class="w-1/2 flex items-center gap-4 bg-[var(--pmr-1)] py-3 px-4 rounded-lg">
-            <div class="w-4 h-4 bg-gray-800"></div>
-            <input type="text" placeholder="Rechercher un numéro de don, un nom, un prénom, ..." 
-                    class="w-full text-sm text-gray-700 focus:outline-none">
-        </div>
-        <button class="w-6 h-6 bg-gray-800 rounded-md cursor-pointer"></button>
-    </div>
-    
-    
-    <!-- Table -->
-    <div class="mt-8">
-        <p class="text-xs mb-2">Titre de table</p>
+<div class="space-y-1 w-full mb-6">
+    <h1 class="text-4xl text-gray-800 font-sans font-bold">Donneurs</h1>
+    <p class="text-sm text-gray-400 font-sans font-bold">Liste des donneurs du centre X</p>
+</div>
 
-        <div>
-            <div class="flex justify-between items-center gap-3 py-2">
-                <div class="w-[5%] text-xs text-[var(--pmr-2)] font-bold">N°</div>
-                <div class="w-[30%] text-xs text-[var(--pmr-2)] font-bold">Nom complet</div>
-                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold">Date de naissance</div>
-                <div class="w-[20%] text-xs text-[var(--pmr-2)] font-bold">Téléphone</div>
-                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold text-center">Eligibilité</div>
-                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold">Dernier don</div>
-                <div class="w-[15%] text-xs text-[var(--pmr-2)] font-bold"></div>
+<div>
+    <!-- Table -->
+    <div class="">
+        <!-- Pagination -->
+        <div class="flex items-center justify-between bg-white py-3">
+            <div class="flex flex-1 justify-between sm:hidden">
+                <button class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" disabled>Précédent</button>
+                <button class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Suivant</button>
             </div>
-            @for($i of [1,2,3,4,5,6,7,8,9,10,11]; track $i){
+            <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                <div>
+                    <p class="text-sm text-gray-700">
+                        Page
+                        <span class="font-medium">1</span>
+                        sur
+                        <span class="font-medium">7</span>
+                        pour
+                        <span class="font-medium">350</span>
+                        résultats
+                    </p>
+                </div>
+                <div>
+                    <nav aria-label="Pagination" class="isolate inline-flex -space-x-px rounded-md shadow-xs">
+                        <button class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 cursor-pointer inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                            <span class="sr-only">Previous</span>
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
+                                <path d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
+                        <a href="#" aria-current="page" class="relative z-10 inline-flex items-center bg-slate-900 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">1</a>
+                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+                        <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+                        <span class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 inset-ring inset-ring-gray-300 focus:outline-offset-0">...</span>
+                        <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">8</a>
+                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">9</a>
+                        <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">10</a>
+                        <button class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 cursor-pointer inset-ring inset-ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                            <span class="sr-only">Next</span>
+                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
+                                <path d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Input -->
+        <div class="flex justify-start items-center w-full mb-4">
+            <div class="group w-124 flex items-center gap-3 bg-white py-2 px-3 border border-gray-300 rounded-lg">
+                <app-ico-loupe width="w-3" />
+                <input type="text" placeholder="Rechercher un numéro de don, un nom, un prénom, ..." 
+                        class="w-full font-sans text-sm text-gray-950 focus:outline-none">
+                <button class="cursor-pointer" (click)="openModalSearch()">
+                    <app-ico-filter />
+                </button>
+            </div>
+            
+        </div>
+        
+        <!-- Rows -->
+        <div>
+            <div class="flex justify-between items-center gap-3 py-2 border border-transparent border-b-gray-300">
+                <div class="w-[5%] text-xs text-[var(--pmr-2)] font-bold font-sans">N°</div>
+                <div class="w-[25%] text-xs text-[var(--pmr-2)] font-bold font-sans">Nom complet</div>
+                <div class="w-[15%] text-xs text-[var(--pmr-2)] font-bold font-sans">Date de naissance</div>
+                <div class="w-[20%] text-xs text-[var(--pmr-2)] font-bold font-sans">Téléphone</div>
+                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold font-sans text-center">Eligibilité</div>
+                <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold font-sans">Dernier don</div>
+                <div class="w-[15%] text-xs text-[var(--pmr-2)] font-bold font-sans"></div>
+            </div>
+            @for(donor of donors(); track donor.id; let i = $index;){
                 <div class="flex justify-between items-center gap-3 pt-3 pb-4 border-t-1">
-                    <div class="w-[5%] text-xs text-[var(--pmr-2)]"># 1</div>
-                    <div class="w-[30%] text-xs text-[var(--pmr-2)]">KIENOU L. Arnold Jonathan</div>
-                    <div class="w-[10%] text-xs text-[var(--pmr-2)]">24 / 07 /2000</div>
-                    <div class="w-[20%] text-xs text-[var(--pmr-2)]">(226) 74 16 64 39 / 02 01 85 74</div>
-                    <div class="w-[10%] text-xs text-[var(--pmr-2)] text-center">
-                        <span class="inline-block text-xs text-green-700 font-bold bg-green-100 
+                    <div class="w-[5%] text-xs text-[var(--pmr-2)] font-sans"># {{ i }}</div>
+                    <div class="w-[25%] text-xs text-[var(--pmr-2)] font-sans">{{ donor.person.fullname }}</div>
+                    <div class="w-[15%] text-xs text-[var(--pmr-2)] font-sans">{{ donor.person.birthDate | date : 'dd / MM / yyyy' }}</div>
+                    <div class="w-[20%] text-xs text-[var(--pmr-2)] font-sans">{{ donor.person.phone }}</div>
+                    <div class="w-[10%] text-xs text-[var(--pmr-2)] font-sans text-center">
+                        @if(donor.eligible){
+                        <span class="inline-block text-xs text-green-700 font-bold font-sans bg-green-100 
                                     flex items-center justify-center px-3 py-1 rounded-xl">
                             Eligible
                         </span>
+                        }@else{
+                        <span class="inline-block text-xs text-red-700 font-bold font-sans bg-red-100 
+                                    flex items-center justify-center px-3 py-1 rounded-xl">
+                            Non Eligible
+                        </span>
+                        }
                     </div>
-                    <div class="w-[10%] text-xs text-[var(--pmr-2)]">10 / 10 / 2023</div>
-                    <div class="w-[15%] text-xs text-[var(--pmr-2)]">
-                        <button class="bg-[var(--pmr-1)] border-[var(--pmr-2)] border-2 text-[var(--pmr-2)] rounded-md px-3 py-1
-                                        text-xs font-bold cursor-pointer">
+                    <div class="w-[10%] text-xs text-[var(--pmr-2)] font-sans">{{ donor.lastDonation | date: 'dd / MM / yyyy' }}</div>
+                    <div class="w-[15%] text-xs text-[var(--pmr-2)] font-sans">
+                        <!-- CLASSIC -->
+                        <button [routerLink]="'/donor/view/' + donor.id" class="hidden bg-[var(--pmr-1)] border-[var(--pmr-2)] border-2 text-[var(--pmr-2)] rounded-md px-3 py-1
+                                        text-xs font-bold font-sans cursor-pointer">
+                            DETAIL
+                        </button>
+                        <!-- ORA ID -->
+                        <button (click)="oraDetail(donor.person.lastname, donor.person.firstname, donor.person.birthDate)" class="bg-[var(--pmr-1)] border-[var(--pmr-2)] border-2 text-[var(--pmr-2)] rounded-md px-3 py-1
+                                        text-xs font-bold font-sans cursor-pointer">
                             DETAIL
                         </button>
                     </div>
+                </div>
+            }@empty {
+                <div class="py-12 px-16">
+                    <div class="w-full flex items-center justify-center">
+                        <app-not-found icostyle="w-64 opacity-60" />
+                    </div>
+                    <p class="text-center text-gray-600 text-base font-sans">
+                        Aucun donneurs trouvé ! Veuillez vérifier votre connexion internet.
+                    </p>
                 </div>
             }
         </div>
@@ -50,4 +123,4 @@
 
 </div>
 
-<app-modal-search-list></app-modal-search-list>
+@if(modalSearch()){<app-modal-search-list (closeModal)="closeModalSearch()" />}

@@ -1,12 +1,12 @@
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, HostListener, OnInit, signal, ViewChild, ViewEncapsulation } from '@angular/core';
 import { SidebarComponent } from "../sidebar/sidebar.component";
-import { RouterOutlet } from "@angular/router";
+import { RouterLink, RouterOutlet } from "@angular/router";
 import { time } from 'console';
 
 @Component({
   selector: 'app-admin-layout',
-  imports: [NgClass, RouterOutlet],
+  imports: [NgClass, RouterOutlet, RouterLink],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.scss',
   standalone: true,

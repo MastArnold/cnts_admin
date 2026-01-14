@@ -1,114 +1,57 @@
-<div class="fixed inset-0 bg-black/20 z-10 grid place-items-center">
-    <div class="bg-white w-2/5 h-3/4 py-10 px-8 rounded-lg overflow-y-auto">
+<div class="fixed inset-0 z-30 grid place-items-center">
+    <div class="absolute inset-0 bg-black/20 z-40 grid place-items-center" (click)="close()"></div>
+
+    <div class="z-40 bg-white w-2/5 h-4/5 py-10 px-8 rounded-lg overflow-y-auto">
         <div class="flex justify-center items-center gap-4">
             <div class="w-16 h-16 bg-red-800 rounded-full"></div>
-            <div class="flex flex-col gap-1">
-                <span class="text-gray-800 text-xl font-bold">Formulaire</span>
-                <span class="text-gray-500 text-xs font-bold">Critère de recherche d'un donneur</span>
+            <div class="flex flex-col gap-0">
+                <span class="text-gray-800 text-lg font-bold font-sans">Formulaire</span>
+                <span class="text-gray-500 text-xs font-bold font-sans">Critère de recherche d'un donneur</span>
             </div>
         </div>
 
-        <div class="space-y-4 mt-8">
-            <button class="w-full py-2 px-4 bg-red-800/60 text-white text-sm font-bold rounded-md cursor-pointer">VALIDER</button>
+        <form [formGroup]="form" (submit)="search()" class="space-y-8 mt-16">
 
-            <div class="flex flex-col gap-1">
-                <div class="relative">
-                    <label class="w-auto group relative text-xs text-gray-700" for="">Nom et prénom
+            <div class="space-y-4">
+                <button class="w-full py-2 px-4 bg-red-700 hover:bg-red-800 disabled:opacity-50 text-white text-sm font-bold rounded-md cursor-pointer font-sans" [disabled]="!form.valid">VALIDER</button>
 
-                        <span class="absolute top-0 -right-4 w-3 h-3 bg-gray-600 rounded-full"></span>
-
-                        <div class=" w-32 group-hover:block absolute top-0 -right-6 translate-x-full rounded-md
-                                    flex items-center justify-start text-xs text-red-900 font-bold
-                                    opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">
-                            Champs obligatoire
-                        </div>
-                    </label>
+                <div class="flex flex-col gap-1">
+                    <label class="w-auto group relative text-xs text-gray-700 font-sans" for="lastname">Nom</label>
+                    <input type="text" formControlName="lastname" id="lastname" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none uppercase">
                 </div>
-                <input type="text" class="text-sm bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="relative">
-                    <label class="w-auto group relative text-xs text-gray-700" for="">Date de naissance
-
-                        <span class="absolute top-0 -right-4 w-3 h-3 bg-gray-600 rounded-full"></span>
-
-                        <div class=" w-32 group-hover:block absolute top-0 -right-6 translate-x-full rounded-md
-                                    flex items-center justify-start text-xs text-red-900 font-bold
-                                    opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">
-                            Champs obligatoire
-                        </div>
-                    </label>
+                <div class="flex flex-col gap-1">
+                    <label class="w-auto group relative text-xs text-gray-700 font-sans" for="firstname">Prénom</label>
+                    <input type="text" formControlName="firstname" id="firstname" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none uppercase">
                 </div>
-                <input type="date" class="text-sm bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="relative">
-                    <label class="w-auto group relative text-xs text-gray-700" for="">Téléphone
-
-                        <span class="absolute top-0 -right-4 w-3 h-3 bg-gray-600 rounded-full"></span>
-
-                        <div class=" w-32 group-hover:block absolute top-0 -right-6 translate-x-full rounded-md
-                                    flex items-center justify-start text-xs text-red-900 font-bold
-                                    opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">
-                            Champs obligatoire
-                        </div>
-                    </label>
+                <div class="flex flex-col gap-1">
+                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="birthdate">Date de naissance</label>
+                    <input type="date" formControlName="birthdate" id="birthdate" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none">
                 </div>
-                <input type="text" class="text-sm bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none">
             </div>
-        </div>
 
-        <div class="mt-8 mb-2 flex items-center gap-3">
-            <h4 class="w-64 text-md text-gray-600 font-medium">Critères optionnel</h4>
-            <hr class="w-full border-gray-300">
-        </div>
+            <div class="mb-2 flex items-center gap-3">
+                <h4 class="w-64 text-md text-gray-600 font-medium">Critères optionnel</h4>
+                <hr class="w-full border-gray-300">
+            </div>
 
-        <div class="space-y-4">
-            <div class="flex flex-col gap-1">
-                <div class="relative">
-                    <label class="w-auto group relative text-xs text-gray-700" for="">N° de don
-
-                        <span class="absolute top-0 -right-4 w-3 h-3 bg-gray-600 rounded-full"></span>
-
-                        <div class=" w-32 group-hover:block absolute top-0 -right-6 translate-x-full rounded-md
-                                    flex items-center justify-start text-xs text-red-900 font-bold
-                                    opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">
-                            Champs obligatoire
-                        </div>
-                    </label>
+            <div class="space-y-4">
+                <div class="flex flex-col gap-1">
+                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="phone">Téléphone</label>
+                    <input type="text" formControlName="phone" id="phone" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
                 </div>
-                <input type="text" class="text-sm bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="relative">
-                    <label class="w-auto group relative text-xs text-gray-700" for="">N° CNIB
-
-                        <span class="absolute top-0 -right-4 w-3 h-3 bg-gray-600 rounded-full"></span>
-
-                        <div class=" w-32 group-hover:block absolute top-0 -right-6 translate-x-full rounded-md
-                                    flex items-center justify-start text-xs text-red-900 font-bold
-                                    opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">
-                            Champs obligatoire
-                        </div>
-                    </label>
+                <div class="flex flex-col gap-1">
+                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="donorNo">N° de don</label>
+                    <input type="text" formControlName="donorNo" id="donorNo" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
                 </div>
-                <input type="text" class="text-sm bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-            </div>
-            <div class="flex flex-col gap-1">
-                <div class="relative">
-                    <label class="w-auto group relative text-xs text-gray-700" for="">N° de permis
-
-                        <span class="absolute top-0 -right-4 w-3 h-3 bg-gray-600 rounded-full"></span>
-
-                        <div class="w-full group-hover:block absolute top-0 -right-6 translate-x-full rounded-md
-                                    flex items-center justify-start text-xs text-red-900 font-bold
-                                    opacity-0 translate-y-4 group-hover:translate-y-0 group-hover:opacity-100 transition duration-300">
-                            Numéro de permis de conduire
-                        </div>
-                    </label>
+                <div class="flex flex-col gap-1">
+                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="nin">N° CNIB</label>
+                    <input type="text" formControlName="nin" id="nin" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
                 </div>
-                <input type="text" class="text-sm bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+                <div class="flex flex-col gap-1">
+                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="drivingLicense">N° de permis</label>
+                    <input type="text" formControlName="drivingLicense" id="drivingLicense" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 </div>
