@@ -11,6 +11,13 @@ input:focus, select:focus{
 }
 
 @layer utilities {
+  .pointer{
+    @apply cursor-pointer
+  }
+  .transform-transition{
+    @apply transition duration-300 ease-in-out
+  }
+
   .side-form {
     @apply flex justify-between items-center gap-8
   }
@@ -31,6 +38,9 @@ input:focus, select:focus{
   }
   .side-form .side-container .side-group .side-group-input{
     @apply flex gap-2 items-center px-3 py-2 border border-gray-400 rounded-lg
+  }
+  .side-form .side-container .side-group .side-group-input.readonly{
+    @apply bg-gray-100 border-transparent
   }
   .side-form .side-container .side-group .side-group-input .ico{
     @apply w-4

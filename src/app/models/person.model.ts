@@ -1,3 +1,4 @@
+import { DatePipe } from "@angular/common";
 import { PersonInterface } from "../interfaces/person.interface";
 
 export class Person{
@@ -7,6 +8,7 @@ export class Person{
     private _firstname: string;
     private _gender: string;
     private _birthDate: Date;
+    private _old: number = 0;
     private _birthPlace: string;
     private _phone: string;
     private _email: string;
@@ -20,6 +22,7 @@ export class Person{
         this._firstname = firstname_;
         this._gender = gender_;
         this._birthDate = birthDate_;
+        this._old = Person.oldCalculator(this._birthDate);
         this._birthPlace = birthPlace_;
         this._phone = phone_;
         this._email = email_;
@@ -40,6 +43,7 @@ export class Person{
     public get firstname() { return this._firstname; }
     public get gender() { return this._gender; }
     public get birthDate() { return this._birthDate; }
+    public get old() { return this._old; }
     public get birthPlace() { return this._birthPlace; }
     public get phone() { return this._phone; }
     public get email() { return this._email; }
@@ -52,6 +56,7 @@ export class Person{
     public set firstname(firstname_: string) { this._firstname = firstname_; }
     public set gender(gender_: string) { this._gender = gender_; }
     public set birthDate(birthDate_: Date) { this._birthDate = birthDate_; }
+    public set old(old_: number) { this._old = old_; }
     public set birthPlace(birthPlace_: string) { this._birthPlace = birthPlace_; }
     public set phone(phone_: string) { this._phone = phone_; }
     public set email(email: string) { this._email = email; }
@@ -59,13 +64,27 @@ export class Person{
     public set nin(nin: string) { this._nin = nin; }
     public set drivingLicenceNo(drivingLicenceNo: string) { this._drivingLicenceNo = drivingLicenceNo; }
 
+    private static oldCalculator(birthdate: Date){
+        const today = new Date();
+        const age = today.getFullYear() - birthdate.getFullYear();
+        const m = today.getMonth() - birthdate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthdate.getDate())) {
+            return age - 1;
+        } else {
+            return age;
+        }
+    }
+
     toJson(){
+        const datePipe = new DatePipe('en-US');
+        const birthDateString = datePipe.transform(this._birthDate, 'yyyy-MM-dd')!;
+        
         return {
             id: this._id,
-            lastname: this._lastname,
-            firstname: this._firstname,
+            lastName: this._lastname,
+            firstName: this._firstname,
             gender: this._gender,
-            birthDate: this._birthDate,
+            birthDate: birthDateString,
             birthPlace: this._birthPlace,
             phone: this._phone,
             email: this._email,
@@ -78,18 +97,39 @@ export class Person{
     static fromJson(json: any){
         const person = Person.buildEmpty();
 
-        person._id = json.id;
-        person._lastname = json.lastname;
-        person._firstname = json.firstname;
-        person._gender = json.gender;
-        person._birthDate = new Date(json.birthDate);
-        person._birthPlace = json.birthPlace;
-        person._phone = json.phone;
-        person._address = json.address;
+        person.id = json.id;
+        person.lastname = json.lastname;
+        person.firstname = json.firstname;
+        person.gender = json.gender;
+        person.birthDate = new Date(json.birthDate);
+        person.old = this.oldCalculator(person.birthDate);
+        person.birthPlace = json.birthPlace;
+        person.phone = json.phone;
+        person.address = json.address;
+        person.email = json.email ? json.email : '';
 
-        person._email = json.email;
-        person._nin = json.nin;
-        person._drivingLicenceNo = json.drivingLicenceNo;
+        person.nin = json.nin ? json.nin : '';
+        person.drivingLicenceNo = json.drivingLicenceNo ? json.drivingLicenceNo : '';
+
+        return person;
+    }
+
+    static fromOraJson(json: any){
+        const person = Person.buildEmpty();
+
+        person.id = 0;
+        person.lastname = json.nom;
+        person.firstname = json.pren;
+        person.gender = json.sexe ? json.sexe.toLowerCase() : '';
+        person.birthDate = json.daten ? new Date(json.daten) : new Date("0000-01-01");
+        person.old = this.oldCalculator(person.birthDate);
+        person.birthPlace = json.lieun;
+        person.phone = json.tport;
+        person.address = json.ad1;
+        person.email = json.email;
+
+        person.nin = json.nin ? json.nin : '';
+        person.drivingLicenceNo = json.drivingLicenceNo ? json.drivingLicenceNo : '';
 
         return person;
     }

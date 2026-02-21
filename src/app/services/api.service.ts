@@ -6,7 +6,7 @@ export class ApiService{
 
     httpClient = inject(HttpClient);
 
-    baseUrl = 'http://localhost:8080/api/';
+    baseUrl = 'http://cnts-server.axianeagency.cloud/api/';
     tempAuth = {
         username: 'admin',
         password: 'secret123'

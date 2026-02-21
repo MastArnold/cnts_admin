@@ -1,0 +1,700 @@
+{
+  "addresses" : [
+    {
+      "province": "BALE",
+      "localites": [
+        { "nom": "BAGASSI", "postal": "81200" },
+        { "nom": "BANA", "postal": "81250" },
+        { "nom": "BOROMO", "postal": "81000" },
+        { "nom": "FARA", "postal": "81300" },
+        { "nom": "OURY", "postal": "81350" },
+        { "nom": "PA", "postal": "81400" },
+        { "nom": "POMPOÏ", "postal": "81450" },
+        { "nom": "POURA", "postal": "81500" },
+        { "nom": "SIBY", "postal": "81550" },
+        { "nom": "YAHO", "postal": "81600" }
+      ]
+    },
+    {
+      "province": "BAM",
+      "localites": [
+        { "nom": "BOURZANGA", "postal": "51200" },
+        { "nom": "GUIBARE", "postal": "51250" },
+        { "nom": "KONGOUSSI", "postal": "51000" },
+        { "nom": "NASSERE", "postal": "51300" },
+        { "nom": "ROLLO", "postal": "51350" },
+        { "nom": "ROUKO", "postal": "51400" },
+        { "nom": "SABSE", "postal": "51450" },
+        { "nom": "TIKARE", "postal": "51500" },
+        { "nom": "ZIMTENGA", "postal": "51550" }
+      ]
+    },
+    {
+      "province": "BANWA",
+      "localites": [
+        { "nom": "BALAVE", "postal": "82200" },
+        { "nom": "KOUKA", "postal": "82250" },
+        { "nom": "SAMI", "postal": "82300" },
+        { "nom": "SANABA", "postal": "82350" },
+        { "nom": "SOLENZO", "postal": "82000" },
+        { "nom": "TANSILA", "postal": "82400" }
+      ]
+    },
+    {
+      "province": "BAZEGA",
+      "localites": [
+        { "nom": "DOULOUGOU", "postal": "31200" },
+        { "nom": "GAONGO", "postal": "31250" },
+        { "nom": "IPELCE", "postal": "31300" },
+        { "nom": "KAYAO", "postal": "31350" },
+        { "nom": "KOMBISSIRI", "postal": "31000" },
+        { "nom": "SAPONE", "postal": "31400" },
+        { "nom": "TOECE", "postal": "31450" }
+      ]
+    },
+    {
+      "province": "BOUGOURIBA",
+      "localites": [
+        { "nom": "BONDIGUI", "postal": "97200" },
+        { "nom": "DIEBOUGOU", "postal": "97000" },
+        { "nom": "DOLO", "postal": "97250" },
+        { "nom": "NIORONIORO", "postal": "97300" },
+        { "nom": "TIANKOURA", "postal": "97350" }
+      ]
+    },
+    {
+      "province": "BOULGOU",
+      "localites": [
+        { "nom": "BAGRE", "postal": "70300" },
+        { "nom": "BANE", "postal": "70350" },
+        { "nom": "BEGUEDO", "postal": "70400" },
+        { "nom": "BISSIGA", "postal": "70450" },
+        { "nom": "BITOU", "postal": "70250" },
+        { "nom": "BOUSSOUMA", "postal": "70500" },
+        { "nom": "CINKANSE", "postal": "70550" },
+        { "nom": "GARANGO", "postal": "70200" },
+        { "nom": "KOMTOEGA", "postal": "70600" },
+        { "nom": "NIAOGHO", "postal": "70650" },
+        { "nom": "TENKODOGO", "postal": "70000" },
+        { "nom": "ZABRE", "postal": "70700" },
+        { "nom": "ZOAGA", "postal": "70750" },
+        { "nom": "ZONSE", "postal": "70800" }
+      ]
+    },
+    {
+      "province": "BOULKIEMDE",
+      "localites": [
+        { "nom": "BINGO", "postal": "40200" },
+        { "nom": "IMASGO", "postal": "40250" },
+        { "nom": "KINDI", "postal": "40300" },
+        { "nom": "KOKOLOGO", "postal": "40350" },
+        { "nom": "KOUDOUGOU", "postal": "40000" },
+        { "nom": "NANORO", "postal": "40400" },
+        { "nom": "NIANDALA", "postal": "40450" },
+        { "nom": "PELLA", "postal": "40500" },
+        { "nom": "POA", "postal": "40550" },
+        { "nom": "RAMONGO", "postal": "40600" },
+        { "nom": "SABOU", "postal": "40650" },
+        { "nom": "SIGLE", "postal": "40700" },
+        { "nom": "SOAW", "postal": "40750" },
+        { "nom": "SOURGOU", "postal": "40800" },
+        { "nom": "THYOU", "postal": "40850" }
+      ]
+    },
+    {
+      "province": "COMOE",
+      "localites": [
+        { "nom": "BANFORA", "postal": "94000" },
+        { "nom": "BEREGADOUGOU", "postal": "94250" },
+        { "nom": "MANGODARA", "postal": "94300" },
+        { "nom": "MOUSSODOUGOU", "postal": "94350" },
+        { "nom": "NIANGOLOKO", "postal": "94200" },
+        { "nom": "OUO", "postal": "94400" },
+        { "nom": "SIDERADOUGOU", "postal": "94450" },
+        { "nom": "SOUBAKANIEDOUGOU", "postal": "94500" },
+        { "nom": "TIEFORA", "postal": "94550" }
+      ]
+    },
+    {
+      "province": "GANZOURGOU",
+      "localites": [
+        { "nom": "BOUDRY", "postal": "21200" },
+        { "nom": "KOGO", "postal": "21250" },
+        { "nom": "MEGUET", "postal": "21300" },
+        { "nom": "MOGTEDO", "postal": "21350" },
+        { "nom": "SALOGO", "postal": "21400" },
+        { "nom": "ZAM", "postal": "21450" },
+        { "nom": "ZORGHO", "postal": "21000" },
+        { "nom": "ZOUNGOU", "postal": "21500" }
+      ]
+    },
+    {
+      "province": "GNAGNA",
+      "localites": [
+        { "nom": "BILANGA", "postal": "76200" },
+        { "nom": "BOGANDE", "postal": "76000" },
+        { "nom": "COALLA", "postal": "76250" },
+        { "nom": "LIPTOUGOU", "postal": "76300" },
+        { "nom": "MANI", "postal": "76350" },
+        { "nom": "PIELA", "postal": "76400" },
+        { "nom": "THION", "postal": "76450" }
+      ]
+    },
+    {
+      "province": "GOURMA",
+      "localites": [
+        { "nom": "DIABO", "postal": "75200" },
+        { "nom": "DIAPANGOU", "postal": "75250" },
+        { "nom": "FADA N'GOURMA", "postal": "75000" },
+        { "nom": "MATIACOALI", "postal": "75300" },
+        { "nom": "TIBGA", "postal": "75350" },
+        { "nom": "YAMBA", "postal": "75400" }
+      ]
+    },
+    {
+      "province": "HOUET",
+      "localites": [
+        { "nom": "BOBO DIOULASSO", "postal": "90000" },
+        { "nom": "ACCART VILLE NORD", "postal": "90020" },
+        { "nom": "ACCART VILLE SUD", "postal": "90000" },
+        { "nom": "BAMA", "postal": "90200" },
+        { "nom": "BANA", "postal": "90020" },
+        { "nom": "BARE", "postal": "90010" },
+        { "nom": "BELLE VILLE", "postal": "90020" },
+        { "nom": "BINDOUGOUSSO", "postal": "90010" },
+        { "nom": "BOLMAKOTE", "postal": "90000" },
+        { "nom": "BORODOUGOU", "postal": "90010" },
+        { "nom": "COLMA", "postal": "90020" },
+        { "nom": "COLSAMA", "postal": "90020" },
+        { "nom": "DAFINSO", "postal": "90020" },
+        { "nom": "DANDE", "postal": "90250" },
+        { "nom": "DARSALAMY", "postal": "90030" },
+        { "nom": "DIARRADOUGOU", "postal": "90020" },
+        { "nom": "DINDERESSO", "postal": "90020" },
+        { "nom": "DOGONA", "postal": "90010" },
+        { "nom": "DOUFIGUISSO", "postal": "90020" },
+        { "nom": "FARAKAN", "postal": "90010" },
+        { "nom": "FARAKOBA", "postal": "90030" },
+        { "nom": "FARAMANA", "postal": "90300" },
+        { "nom": "FÔ", "postal": "90350" },
+        { "nom": "HAMDALAYE", "postal": "90000" },
+        { "nom": "KARANGASSO-SAMBA", "postal": "90450" },
+        { "nom": "KARANGASSO-VIGUE", "postal": "90400" },
+        { "nom": "KEKELESSO", "postal": "90010" },
+        { "nom": "KIMIDOUGOU", "postal": "90020" },
+        { "nom": "KODENI", "postal": "90030" },
+        { "nom": "KOKO", "postal": "90000" },
+        { "nom": "KOKOROWE", "postal": "90020" },
+        { "nom": "KOTEDOUGOU", "postal": "90010" },
+        { "nom": "KOUENTOU", "postal": "90010" },
+        { "nom": "KOUMI", "postal": "90030" },
+        { "nom": "KOUNDOUGOU", "postal": "90500" },
+        { "nom": "KUA", "postal": "90030" },
+        { "nom": "KUINIMA", "postal": "90030" },
+        { "nom": "LAFIABOUGOU", "postal": "90030" },
+        { "nom": "LEGUEMA", "postal": "90010" },
+        { "nom": "LENE", "postal": "90550" },
+        { "nom": "LOGOFOUROUSSO", "postal": "90030" },
+        { "nom": "MATOURKO", "postal": "90030" },
+        { "nom": "MEDINA COURA", "postal": "90020" },
+        { "nom": "MOAMY", "postal": "90030" },
+        { "nom": "MOUKOMA", "postal": "90020" },
+        { "nom": "MOUSSOBADOUGOU", "postal": "90010" },
+        { "nom": "NASSO", "postal": "90020" },
+        { "nom": "NIAMADOUGOU", "postal": "90010" },
+        { "nom": "NIENETA", "postal": "90010" },
+        { "nom": "NOUMOUSSO", "postal": "90010" },
+        { "nom": "OUEZZIN VILLE", "postal": "90010" },
+        { "nom": "OUOLOKOTO", "postal": "90020" },
+        { "nom": "PADEMA", "postal": "90600" },
+        { "nom": "PANAMASSO", "postal": "90020" },
+        { "nom": "PENI", "postal": "90650" },
+        { "nom": "SAINT ETIENNE", "postal": "90000" },
+        { "nom": "SAMAGAN", "postal": "90030" },
+        { "nom": "SANTIDOUGOU", "postal": "90020" },
+        { "nom": "SARFALAO", "postal": "90030" },
+        { "nom": "SATIRI", "postal": "90700" },
+        { "nom": "SIKASSO-CIRA", "postal": "90000" },
+        { "nom": "SOGOSSAGASSO", "postal": "90010" },
+        { "nom": "TONDOGOSSO", "postal": "90010" },
+        { "nom": "TOUNOUMA", "postal": "90000" },
+        { "nom": "TOUSSIANA", "postal": "90750" },
+        { "nom": "YEGUERE", "postal": "90020" },
+        { "nom": "YEGUERESSO", "postal": "90010" },
+        { "nom": "ZONE RESIDENTIELLE A", "postal": "90000" },
+        { "nom": "ZONE RESIDENTIELLE B", "postal": "90000" }
+      ]
+    },
+    {
+      "province": "IOBA",
+      "localites": [
+        { "nom": "DANO", "postal": "98000" },
+        { "nom": "DISSIN", "postal": "98200" },
+        { "nom": "GUEGUERE", "postal": "98250" },
+        { "nom": "KOPER", "postal": "98300" },
+        { "nom": "NIEOGO", "postal": "98350" },
+        { "nom": "ORONKUA", "postal": "98400" },
+        { "nom": "OUESSA", "postal": "98450" },
+        { "nom": "ZAMBO", "postal": "98500" }
+      ]
+    },
+    {
+      "province": "KADIOGO",
+      "localites": [
+        { "nom": "OUAGADOUGOU", "postal": "10000" },
+        { "nom": "1200 LOGEMENTS", "postal": "10020" },
+        { "nom": "BALKUI", "postal": "10020" },
+        { "nom": "BAONORE", "postal": "10050" },
+        { "nom": "BASSINKO", "postal": "10040" },
+        { "nom": "BENDOGO", "postal": "10020" },
+        { "nom": "BILBALOGO", "postal": "10000" },
+        { "nom": "BOANSA", "postal": "10050" },
+        { "nom": "BOASSA", "postal": "10050" },
+        { "nom": "BONHEUR VILLE", "postal": "10050" },
+        { "nom": "BOULMIOUGOU", "postal": "10050" },
+        { "nom": "CAMP LAMIZANA", "postal": "10050" },
+        { "nom": "CISSIN", "postal": "10010" },
+        { "nom": "CITE AN 3", "postal": "10000" },
+        { "nom": "CITE AN III", "postal": "10000" },
+        { "nom": "DAPOYA", "postal": "10000" },
+        { "nom": "DASSASGHO", "postal": "10020" },
+        { "nom": "DAYONGO", "postal": "10020" },
+        { "nom": "GOUDREN", "postal": "10020" },
+        { "nom": "GOUNGHIN", "postal": "10000" },
+        { "nom": "HAMDALAYE", "postal": "10040" },
+        { "nom": "KAMBOINSIN", "postal": "10040" },
+        { "nom": "KAMSONGUEN", "postal": "10000" },
+        { "nom": "KARPALA", "postal": "10020" },
+        { "nom": "KIENBONGUEN", "postal": "10050" },
+        { "nom": "KILWEN", "postal": "10040" },
+        { "nom": "KOLOGONABA", "postal": "10040" },
+        { "nom": "KOMKI IPALA", "postal": "10350" },
+        { "nom": "KOSSODO", "postal": "10030" },
+        { "nom": "KOUBRI", "postal": "10400" },
+        { "nom": "KOULOUBA", "postal": "10000" },
+        { "nom": "KOURITENGA", "postal": "10010" },
+        { "nom": "LARLE", "postal": "10040" },
+        { "nom": "NAGRIN", "postal": "10010" },
+        { "nom": "NEMNIN", "postal": "10000" },
+        { "nom": "NONSIN", "postal": "10040" },
+        { "nom": "OUAGA 2000", "postal": "10010" },
+        { "nom": "OUIDI", "postal": "10040" },
+        { "nom": "PABRE", "postal": "10300" },
+        { "nom": "PASPANGA", "postal": "10000" },
+        { "nom": "PATTE D'OIE", "postal": "10010" },
+        { "nom": "PAZANNI", "postal": "10040" },
+        { "nom": "PISSY", "postal": "10050" },
+        { "nom": "POEDOGO", "postal": "10040" },
+        { "nom": "RIMKIETA", "postal": "10040" },
+        { "nom": "ROUMTENGA", "postal": "10030" },
+        { "nom": "SAABA", "postal": "10200" },
+        { "nom": "SAKOULA", "postal": "10040" },
+        { "nom": "SAMADEN", "postal": "10000" },
+        { "nom": "SAN-YIRI", "postal": "10020" },
+        { "nom": "SOGUEDEN", "postal": "10030" },
+        { "nom": "SOMGANDE", "postal": "10030" },
+        { "nom": "TABTENGA", "postal": "10020" },
+        { "nom": "TAMPOUY", "postal": "10040" },
+        { "nom": "TANGHEN", "postal": "10030" },
+        { "nom": "TANGHIN-DASSOURI", "postal": "10250" },
+        { "nom": "WATINOOMA", "postal": "10040" },
+        { "nom": "WAYALGEN", "postal": "10020" },
+        { "nom": "WEMTENGA", "postal": "10020" },
+        { "nom": "WIDTENGA", "postal": "10020" },
+        { "nom": "YAGMA", "postal": "10040" },
+        { "nom": "YAMTENGA", "postal": "10020" },
+        { "nom": "ZAD", "postal": "10020" },
+        { "nom": "ZAD ANNEXE", "postal": "10020" },
+        { "nom": "ZAGTOULI", "postal": "10050" },
+        { "nom": "ZOGONA", "postal": "10020" },
+        { "nom": "ZONE 1", "postal": "10020" },
+        { "nom": "ZONE DU BOIS", "postal": "10020" },
+        { "nom": "ZONE MARCHE", "postal": "10000" },
+        { "nom": "ZONE MINISTERIELLE", "postal": "10000" },
+        { "nom": "ZONE ZACA", "postal": "10000" },
+        { "nom": "ZONGO", "postal": "10050" }
+      ]
+    },
+    {
+      "province": "KENEDOUGOU",
+      "localites": [
+        { "nom": "BANZON", "postal": "91200" },
+        { "nom": "DJIGOUERA", "postal": "91250" },
+        { "nom": "KANGALA", "postal": "91300" },
+        { "nom": "KAYAN", "postal": "91350" },
+        { "nom": "KOLOKO", "postal": "91400" },
+        { "nom": "KOURIGNON", "postal": "91450" },
+        { "nom": "KOUROUMA", "postal": "91500" },
+        { "nom": "MOROLABA", "postal": "91550" },
+        { "nom": "N'DOROLA", "postal": "91600" },
+        { "nom": "ORODARA", "postal": "91000" },
+        { "nom": "SAMOGOHIRI", "postal": "91650" },
+        { "nom": "SAMOROGOUAN", "postal": "91700" },
+        { "nom": "SINDO", "postal": "91750" }
+      ]
+    },
+    {
+      "province": "KOMANDJARI",
+      "localites": [
+        { "nom": "BATIEBOUGOU", "postal": "77200" },
+        { "nom": "FOUTOURI", "postal": "77250" },
+        { "nom": "GAYERI", "postal": "77000" }
+      ]
+    },
+    {
+      "province": "KOMPIENGA",
+      "localites": [
+        { "nom": "KOMPIENGA", "postal": "78200" },
+        { "nom": "MADJOARI", "postal": "78250" },
+        { "nom": "PAMA", "postal": "78000" }
+      ]
+    },
+    {
+      "province": "KOSSI",
+      "localites": [
+        { "nom": "BARANI", "postal": "83200" },
+        { "nom": "BOMBOROKUY", "postal": "83250" },
+        { "nom": "BOURASSO", "postal": "83300" },
+        { "nom": "DJIBASSO", "postal": "83350" },
+        { "nom": "DOKUY", "postal": "83400" },
+        { "nom": "DOUMBALA", "postal": "83450" },
+        { "nom": "KOMBORI", "postal": "83500" },
+        { "nom": "MADOUBA", "postal": "83550" },
+        { "nom": "NOUNA", "postal": "83000" },
+        { "nom": "SONO", "postal": "83600" }
+      ]
+    },
+    {
+      "province": "KOULPELOGO",
+      "localites": [
+        { "nom": "COMIN-YANGA", "postal": "71200" },
+        { "nom": "DOURTENGA", "postal": "71250" },
+        { "nom": "LALGAYE", "postal": "71300" },
+        { "nom": "OUARGAYE", "postal": "71000" },
+        { "nom": "SANGHA", "postal": "71350" },
+        { "nom": "SOUDOUGUI", "postal": "71400" },
+        { "nom": "YARATENGA", "postal": "71450" },
+        { "nom": "YONDE", "postal": "71500" }
+      ]
+    },
+    {
+      "province": "KOURITENGA",
+      "localites": [
+        { "nom": "AMDENTENGA", "postal": "72250" },
+        { "nom": "BASKOURE", "postal": "72300" },
+        { "nom": "DIALGAYE", "postal": "72350" },
+        { "nom": "GOUNGHIN", "postal": "72400" },
+        { "nom": "KANDO", "postal": "72450" },
+        { "nom": "KOUPELA", "postal": "72000" },
+        { "nom": "POUYTENGA", "postal": "72200" },
+        { "nom": "TENSOBENTENGA", "postal": "72500" },
+        { "nom": "YARGO", "postal": "72550" }
+      ]
+    },
+    {
+      "province": "KOURWEOGO",
+      "localites": [
+        { "nom": "BOUSSE", "postal": "22000" },
+        { "nom": "LAYE", "postal": "22200" },
+        { "nom": "NIOU", "postal": "22250" },
+        { "nom": "SOURGOUBILA", "postal": "22300" },
+        { "nom": "TOEGHING", "postal": "22350" }
+      ]
+    },
+    {
+      "province": "LERABA",
+      "localites": [
+        { "nom": "DAKORO", "postal": "95200" },
+        { "nom": "DOUNA", "postal": "95250" },
+        { "nom": "KANKALABA", "postal": "95300" },
+        { "nom": "LOUMANA", "postal": "95350" },
+        { "nom": "NIANKORODOUGOU", "postal": "95400" },
+        { "nom": "OUELENI", "postal": "95450" },
+        { "nom": "SINDOU", "postal": "95000" },
+        { "nom": "WOLONKOTO", "postal": "95500" }
+      ]
+    },
+    {
+      "province": "LOROUM",
+      "localites": [
+        { "nom": "BANH", "postal": "56200" },
+        { "nom": "OUIDIGUI", "postal": "56250" },
+        { "nom": "SOLLE", "postal": "56300" },
+        { "nom": "TITAO", "postal": "56000" }
+      ]
+    },
+    {
+      "province": "MOUHOUN",
+      "localites": [
+        { "nom": "BONDOKUY", "postal": "80200" },
+        { "nom": "DEDOUGOU", "postal": "80000" },
+        { "nom": "DOUROULA", "postal": "80250" },
+        { "nom": "KONA", "postal": "80300" },
+        { "nom": "OUARKOYE", "postal": "80350" },
+        { "nom": "SAFANE", "postal": "80400" },
+        { "nom": "TCHERIBA", "postal": "80450" }
+      ]
+    },
+    {
+      "province": "NAHOURI",
+      "localites": [
+        { "nom": "GUIARO", "postal": "32200" },
+        { "nom": "PO", "postal": "32000" },
+        { "nom": "TIEBELE", "postal": "32250" },
+        { "nom": "ZECCO", "postal": "32300" },
+        { "nom": "ZIOU", "postal": "32350" }
+      ]
+    },
+    {
+      "province": "NAMENTENGA",
+      "localites": [
+        { "nom": "BOALA", "postal": "52200" },
+        { "nom": "BOULSA", "postal": "52000" },
+        { "nom": "BOUROUM", "postal": "52250" },
+        { "nom": "DARGHO", "postal": "52300" },
+        { "nom": "NAGBINGOU", "postal": "52350" },
+        { "nom": "TOUGOURI", "postal": "52400" },
+        { "nom": "YALGO", "postal": "52450" },
+        { "nom": "ZEGUEDEGUIN", "postal": "52500" }
+      ]
+    },
+    {
+      "province": "NAYALA",
+      "localites": [
+        { "nom": "GASSAM", "postal": "84200" },
+        { "nom": "GOSSINA", "postal": "84250" },
+        { "nom": "KOUGNY", "postal": "84300" },
+        { "nom": "TOMA", "postal": "84000" },
+        { "nom": "YABA", "postal": "84350" },
+        { "nom": "YE", "postal": "84400" }
+      ]
+    },
+    {
+      "province": "NOUBIEL",
+      "localites": [
+        { "nom": "BATIE", "postal": "99000" },
+        { "nom": "BOUSSOUKOUKA", "postal": "99200" },
+        { "nom": "KPUERE", "postal": "99250" },
+        { "nom": "LEGMOIN", "postal": "99300" },
+        { "nom": "MIDEBDO", "postal": "99350" }
+      ]
+    },
+    {
+      "province": "OUBRITENGA",
+      "localites": [
+        { "nom": "ABSOUYA", "postal": "20200" },
+        { "nom": "DAPELOGO", "postal": "20250" },
+        { "nom": "LOUMBILA", "postal": "20300" },
+        { "nom": "NAGREONGO", "postal": "20350" },
+        { "nom": "OURGOU-MANEGA", "postal": "20400" },
+        { "nom": "ZINIARE", "postal": "20000" },
+        { "nom": "ZITENGA", "postal": "20450" }
+      ]
+    },
+    {
+      "province": "OUDALAN",
+      "localites": [
+        { "nom": "DEOU", "postal": "61200" },
+        { "nom": "GOROM-GOROM", "postal": "61000" },
+        { "nom": "MARKOYE", "postal": "61250" },
+        { "nom": "OURSI", "postal": "61300" },
+        { "nom": "TINAKOFF", "postal": "61350" }
+      ]
+    },
+    {
+      "province": "PASSORE",
+      "localites": [
+        { "nom": "ARBOLE", "postal": "57200" },
+        { "nom": "BAGARE", "postal": "57250" },
+        { "nom": "BOKIN", "postal": "57300" },
+        { "nom": "GOMPONSOM", "postal": "57350" },
+        { "nom": "KIRSI", "postal": "57400" },
+        { "nom": "LÂ-TODIN", "postal": "57450" },
+        { "nom": "PILIMPIKOU", "postal": "57500" },
+        { "nom": "SAMBA", "postal": "57550" },
+        { "nom": "YAKO", "postal": "57000" }
+      ]
+    },
+    {
+      "province": "PONI",
+      "localites": [
+        { "nom": "BOUROUM-BOUROUM", "postal": "96200" },
+        { "nom": "BOUSSERA", "postal": "96250" },
+        { "nom": "DJIGOUERA", "postal": "96300" },
+        { "nom": "GAOUA", "postal": "96000" },
+        { "nom": "GBOMBLORA", "postal": "96350" },
+        { "nom": "KAMPTI", "postal": "96400" },
+        { "nom": "LOROPENI", "postal": "96450" },
+        { "nom": "MALBA", "postal": "96500" },
+        { "nom": "NAKO", "postal": "96550" },
+        { "nom": "PERIGBAN", "postal": "96600" }
+      ]
+    },
+    {
+      "province": "SANGUIE",
+      "localites": [
+        { "nom": "DASSA", "postal": "41200" },
+        { "nom": "DIDYR", "postal": "41250" },
+        { "nom": "GODYR", "postal": "41300" },
+        { "nom": "KORDIE", "postal": "41350" },
+        { "nom": "KYON", "postal": "41400" },
+        { "nom": "POUNI", "postal": "41450" },
+        { "nom": "REO", "postal": "41000" },
+        { "nom": "TENADO", "postal": "41500" }
+      ]
+    },
+    {
+      "province": "SANMATENGA",
+      "localites": [
+        { "nom": "BARSALOGHO", "postal": "50200" },
+        { "nom": "BOUSSOUMA", "postal": "50250" },
+        { "nom": "DABLO", "postal": "50300" },
+        { "nom": "KAYA", "postal": "50000" },
+        { "nom": "KORSIMORO", "postal": "50350" },
+        { "nom": "MANE", "postal": "50400" },
+        { "nom": "NAMISSIGUIMA", "postal": "50450" },
+        { "nom": "PENSA", "postal": "50500" },
+        { "nom": "PIBAORE", "postal": "50550" },
+        { "nom": "PISSILA", "postal": "50600" },
+        { "nom": "ZIGA", "postal": "50650" }
+      ]
+    },
+    {
+      "province": "SENO",
+      "localites": [
+        { "nom": "BANI", "postal": "60200" },
+        { "nom": "DORI", "postal": "60000" },
+        { "nom": "FALANGOUTOU", "postal": "60250" },
+        { "nom": "GORGADJI", "postal": "60300" },
+        { "nom": "SAMPELGA", "postal": "60350" },
+        { "nom": "SEYTENGA", "postal": "60400" }
+      ]
+    },
+    {
+      "province": "SISSILI",
+      "localites": [
+        { "nom": "BIEHA", "postal": "42200" },
+        { "nom": "BOURA", "postal": "42250" },
+        { "nom": "LEO", "postal": "42000" },
+        { "nom": "NEBIELIANAYOU", "postal": "42300" },
+        { "nom": "NIAMBOURI", "postal": "42350" },
+        { "nom": "SILLY", "postal": "42400" },
+        { "nom": "TÔ", "postal": "42450" }
+      ]
+    },
+    {
+      "province": "SOUM",
+      "localites": [
+        { "nom": "ARBINDA", "postal": "62200" },
+        { "nom": "BARABOULE", "postal": "62250" },
+        { "nom": "DJIBO", "postal": "62000" },
+        { "nom": "DJIGUEL", "postal": "62300" },
+        { "nom": "KELBO", "postal": "62350" },
+        { "nom": "KOUTOUGOU", "postal": "62400" },
+        { "nom": "NASSOUMBOU", "postal": "62450" },
+        { "nom": "POBE-MENGAO", "postal": "62500" },
+        { "nom": "TONGOMAYEL", "postal": "62550" }
+      ]
+    },
+    {
+      "province": "SOUROU",
+      "localites": [
+        { "nom": "DI", "postal": "85200" },
+        { "nom": "GOMBORO", "postal": "85250" },
+        { "nom": "KASSOUM", "postal": "85300" },
+        { "nom": "KIEMBARA", "postal": "85350" },
+        { "nom": "LANFIERA", "postal": "85400" },
+        { "nom": "LANKOUE", "postal": "85450" },
+        { "nom": "TOENI", "postal": "85500" },
+        { "nom": "TOUGAN", "postal": "85000" }
+      ]
+    },
+    {
+      "province": "TAPOA",
+      "localites": [
+        { "nom": "BOTOU", "postal": "79200" },
+        { "nom": "DIAPAGA", "postal": "79000" },
+        { "nom": "KANTCHARI", "postal": "79250" },
+        { "nom": "LOGOBOU", "postal": "79300" },
+        { "nom": "NAMOUNOU", "postal": "79350" },
+        { "nom": "PARTAGA", "postal": "79400" },
+        { "nom": "TAMBAGA", "postal": "79450" },
+        { "nom": "TANSARGA", "postal": "79500" }
+      ]
+    },
+    {
+      "province": "TUY",
+      "localites": [
+        { "nom": "BEKUY", "postal": "92200" },
+        { "nom": "BEREBA", "postal": "92250" },
+        { "nom": "BONI", "postal": "92300" },
+        { "nom": "FOUNZAN", "postal": "92350" },
+        { "nom": "HOUNDE", "postal": "92000" },
+        { "nom": "KOTI", "postal": "92400" },
+        { "nom": "KOUMBIA", "postal": "92450" }
+      ]
+    },
+    {
+      "province": "YAGHA",
+      "localites": [
+        { "nom": "BOUNDORE", "postal": "63200" },
+        { "nom": "MANSILA", "postal": "63250" },
+        { "nom": "SEBBA", "postal": "63000" },
+        { "nom": "SOLHAN", "postal": "63300" },
+        { "nom": "TANKOUGOUNADIE", "postal": "63350" },
+        { "nom": "TITABE", "postal": "63400" }
+      ]
+    },
+    {
+      "province": "YATENGA",
+      "localites": [
+        { "nom": "BARGA", "postal": "55200" },
+        { "nom": "KAIN", "postal": "55250" },
+        { "nom": "KALSAGA", "postal": "55300" },
+        { "nom": "KOSSOUKA", "postal": "55350" },
+        { "nom": "KOUMBRI", "postal": "55400" },
+        { "nom": "NAMISSIGUIMA", "postal": "55450" },
+        { "nom": "OUAHIGOUYA", "postal": "55000" },
+        { "nom": "OULA", "postal": "55500" },
+        { "nom": "RAMBO", "postal": "55550" },
+        { "nom": "SEGUENAGA", "postal": "55600" },
+        { "nom": "TANGAYE", "postal": "55650" },
+        { "nom": "THIOU", "postal": "55700" },
+        { "nom": "ZOGORE", "postal": "55750" }
+      ]
+    },
+    {
+      "province": "ZANDOMA",
+      "localites": [
+        { "nom": "BASSI", "postal": "58200" },
+        { "nom": "BOUSSOU", "postal": "58250" },
+        { "nom": "GOURCY", "postal": "58000" },
+        { "nom": "LEBA", "postal": "58300" },
+        { "nom": "TOUGO", "postal": "58350" }
+      ]
+    },
+    {
+      "province": "ZIRO",
+      "localites": [
+        { "nom": "BAKATA", "postal": "43200" },
+        { "nom": "BOUGNOUNOU", "postal": "43250" },
+        { "nom": "CASSOU", "postal": "43300" },
+        { "nom": "DALO", "postal": "43350" },
+        { "nom": "GAO", "postal": "43400" },
+        { "nom": "SAPOUY", "postal": "43000" }
+      ]
+    },
+    {
+      "province": "ZOUNDWEOGO",
+      "localites": [
+        { "nom": "BERE", "postal": "30200" },
+        { "nom": "BINDE", "postal": "30250" },
+        { "nom": "GOGO", "postal": "30300" },
+        { "nom": "GOMBOUSSOUGOU", "postal": "30350" },
+        { "nom": "GUIBA", "postal": "30400" },
+        { "nom": "MANGA", "postal": "30000" },
+        { "nom": "NOBERE", "postal": "30450" }
+      ]
+    }
+  ]
+}

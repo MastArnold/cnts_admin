@@ -10,41 +10,29 @@ export class DonorService{
 
     private api = inject(ApiService);
 
-    DONOR_ENDPOINT = 'oraid';
+    LEGACY_ENDPOINT = 'oraid';
+    DONOR_ENDPOINT = 'donors';
 
     private donors = signal<Donor[]>([]);
     public $donors = this.donors.asReadonly();
 
+    private formPreload = signal<{
+        fullname: string;
+        birthdate: string;
+        phone?: string;
+        nin?: string;
+    }>({
+        fullname: "",
+        birthdate: ""
+    });
+
     loadDonors(page: number = 1){
-        this.api.get(this.DONOR_ENDPOINT + `?page=${page}`).subscribe(
+        this.api.get(this.LEGACY_ENDPOINT + `?page=${page}`).subscribe(
             (response) => {
                 const pageable = response as SpringPageable;
                 const list: Donor[] = [];
                 pageable.content.forEach((element: any, index: number) => {
-                    const person = new Person(
-                        index, 
-                        element.nom, 
-                        element.pren, 
-                        element.sexe ? element.sexe.trim().toLowerCase() : "", 
-                        element.daten ? new Date(element.daten) : new Date("0001-01-01"), 
-                        element.lieun, 
-                        element.tport, 
-                        element.email, 
-                        element.ad1, 
-                        '', 
-                        ''
-                    );
-                    
-                    list.push(new Donor().build(
-                        index,
-                        person.id,
-                        element.cb,
-                        element.groupe ? element.groupe.trim() : "",
-                        true,
-                        '',
-                        '',
-                        person
-                    )); 
+                    list.push(Donor.fromOraJson(element)); 
                 });
 
                 this.donors.set(list);
@@ -55,13 +43,53 @@ export class DonorService{
         );
     }
 
+    getFormPreload(){
+        return this.formPreload.asReadonly();
+    }
+
+    setFormPreload(form: {
+        fullname: string;
+        birthdate: string;
+        phone?: string;
+        nin?: string;
+    }){
+        this.formPreload.set(form);
+    }
+
+    cleanFormPreload(){
+        this.formPreload.set({
+            fullname: "",
+            birthdate: "",
+            phone: "",
+            nin: ""
+        });
+    }
+
+    //
+
     getById(id: number){
         new Promise<Donor>((resolve, reject)=>{
-            this.api.get(this.DONOR_ENDPOINT + `/${id}`).subscribe(
+            this.api.get(this.LEGACY_ENDPOINT + `/${id}`).subscribe(
                 (response) => {
                     resolve(response as Donor);
                 }, 
                 (error) => {
+                    reject(error);
+                }
+            );
+        });
+    }
+
+    getByDonorNo(donorNo: string) {
+        return new Promise<Donor>((resolve, reject)=>{
+            this.api.get(this.LEGACY_ENDPOINT + `/donor/${donorNo}`).subscribe(
+                (response) => {
+                    if(!response) reject("Aucune donnée trouvée !");
+
+                    resolve(Donor.fromOraJson(response));
+                }, 
+                (error) => {
+                    console.log(error);
                     reject(error);
                 }
             );
@@ -73,43 +101,18 @@ export class DonorService{
         const birthDateString = datePipe.transform(birthdate, 'yyyy-MM-dd')!;
 
         return new Promise<Donor>((resolve, reject)=>{
-            this.api.post(this.DONOR_ENDPOINT + '/donor/search', {
+            this.api.post(this.LEGACY_ENDPOINT + '/donor/search', {
                 lastname: lastname, 
                 firstname: firstname, 
                 birthdate: birthDateString
             }).subscribe(
                 (response: any) => {
-                    if(!response) reject("Donneur Introuvable !");
-
-                    const person = new Person(
-                        0, 
-                        response.nom, 
-                        response.pren, 
-                        response.sexe ? response.sexe.trim().toLowerCase() : "", 
-                        response.daten ? new Date(response.daten) : new Date("0001-01-01"), 
-                        response.lieun, 
-                        response.tport,
-                        response.email, 
-                        response.ad1,
-                        '', 
-                        ''
-                    );
+                    if(!response) reject({
+                        status: 404,
+                        message: "Donneur introuvable !"
+                    });
                     
-                    const donor = new Donor().build(
-                        0,
-                        person.id,
-                        response.cb,
-                        response.groupe ? response.groupe.trim() : "",
-                        true,
-                        '',
-                        '',
-                        person
-                    );
-
-                    donor.createdAt = response.dcreation ? new Date(response.dcreation) : undefined;
-                    donor.updatedAt = response.ts ? new Date(response.ts) : undefined;
-                    
-                    resolve(donor);
+                    resolve(Donor.fromOraJson(response));
                 }, 
                 (error) => {
                     reject(error);
@@ -128,6 +131,45 @@ export class DonorService{
 
     store(){
 
+    }
+
+    storeLegacy(donor: Donor){
+        return new Promise<Donor>((resolve, reject)=>{
+            this.api.post(this.LEGACY_ENDPOINT, donor.toJson()).subscribe(
+                (response) => {
+                    if(!response) reject("Aucune donnée trouvée !");
+
+                    const donorSaved = Donor.fromOraJson(response);
+
+                    if(donorSaved.donorNo == null) reject("Enregistrement échoué !");
+                    
+                    resolve(donorSaved);
+                },
+                (error) => {
+                    reject(error);
+                }
+            );
+        });
+    }
+
+    updateLegacy(donor: Donor){
+        console.log(donor.toJson());
+        return new Promise<Donor>((resolve, reject)=>{
+            this.api.put(this.LEGACY_ENDPOINT, donor.toJson()).subscribe(
+                (response)=>{
+                    if(!response) reject("Aucune donnée trouvée !");
+
+                    const donorSaved = Donor.fromOraJson(response);
+
+                    if(donorSaved.donorNo == null) reject("Mise à jour échouée !");
+                    
+                    resolve(donorSaved);
+                },
+                (error) => {
+                    reject(error);
+                }
+            )
+        })
     }
 
     update(){

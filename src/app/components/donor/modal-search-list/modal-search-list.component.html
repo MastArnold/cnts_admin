@@ -10,48 +10,97 @@
             </div>
         </div>
 
-        <form [formGroup]="form" (submit)="search()" class="space-y-8 mt-16">
+        <div class="flex items-center gap-2 border-b-1 border-b-red-400 mt-8">
+            <button (click)="switchTab(1)" class="pointer px-4 py-1 rounded-t-lg bg-red-500 text-sm text-gray-50 font-medium font-sans">
+                Multi critère
+            </button>
+            <button (click)="switchTab(2)" class="pointer px-4 py-1 rounded-t-lg bg-gray-200 text-sm text-gray-950 font-medium font-sans">
+                Numéro donneur
+            </button>
+        </div>
+        <div class="flex items-start overflow-x-auto">
+            <form [ngClass]="{'hidden': loading() || card404()}"
+                    [ngClass]="currentTab()" 
+                    [formGroup]="form" (submit)="search()" class="min-w-full space-y-8 mt-4 transform-transition">
 
-            <div class="space-y-4">
-                <button class="w-full py-2 px-4 bg-red-700 hover:bg-red-800 disabled:opacity-50 text-white text-sm font-bold rounded-md cursor-pointer font-sans" [disabled]="!form.valid">VALIDER</button>
+                <div class="space-y-4">
+                    <button class="w-full py-2 px-4 bg-red-700 hover:bg-red-800 disabled:opacity-50 text-white text-sm font-bold rounded-md cursor-pointer font-sans" 
+                            [disabled]="!form.valid">
+                        RECHERCHER
+                    </button>
 
-                <div class="flex flex-col gap-1">
-                    <label class="w-auto group relative text-xs text-gray-700 font-sans" for="lastname">Nom</label>
-                    <input type="text" formControlName="lastname" id="lastname" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none uppercase">
+                    <div class="flex flex-col gap-1">
+                        <label class="w-auto group relative text-xs text-gray-700 font-sans" for="lastname">Nom</label>
+                        <input type="text" formControlName="lastname" id="lastname" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none uppercase">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="w-auto group relative text-xs text-gray-700 font-sans" for="firstname">Prénom</label>
+                        <input type="text" formControlName="firstname" id="firstname" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none uppercase">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="w-auto group relative text-xs font-sans text-gray-700" for="birthdate">Date de naissance</label>
+                        <input type="date" formControlName="birthdate" id="birthdate" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+                    </div>
                 </div>
-                <div class="flex flex-col gap-1">
-                    <label class="w-auto group relative text-xs text-gray-700 font-sans" for="firstname">Prénom</label>
-                    <input type="text" formControlName="firstname" id="firstname" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none uppercase">
+
+                <div class="mb-2 flex items-center gap-3">
+                    <h4 class="w-64 text-md text-gray-600 font-medium">Critères optionnel</h4>
+                    <hr class="w-full border-gray-300">
                 </div>
-                <div class="flex flex-col gap-1">
-                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="birthdate">Date de naissance</label>
-                    <input type="date" formControlName="birthdate" id="birthdate" class="text-sm font-sans bg-[var(--pmr-1)] text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="w-auto group relative text-xs font-sans text-gray-700" for="phone">Téléphone</label>
+                        <input type="text" formControlName="phone" id="phone" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="w-auto group relative text-xs font-sans text-gray-700" for="donorNo">N° de don</label>
+                        <input type="text" formControlName="donorNo" id="donorNo" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="w-auto group relative text-xs font-sans text-gray-700" for="nin">N° CNIB</label>
+                        <input type="text" formControlName="nin" id="nin" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="w-auto group relative text-xs font-sans text-gray-700" for="drivingLicense">N° de permis</label>
+                        <input type="text" formControlName="drivingLicense" id="drivingLicense" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
+                    </div>
+                </div>
+            </form>
+
+            <div [ngClass]="currentTab()" class="py-6 min-w-full transform-transition">
+                <div class="relative flex gap-1 border-1 border-gray-300 rounded-sm">
+                    <input class="w-full bg-white px-4 py-2 uppercase" placeholder="1 041526 001A" type="text">
+                    <button class="h-full text-xs text-white font-sans px-3 py-3 bg-red-600">
+                        Rechercher
+                    </button>
                 </div>
             </div>
+        </div>
 
-            <div class="mb-2 flex items-center gap-3">
-                <h4 class="w-64 text-md text-gray-600 font-medium">Critères optionnel</h4>
-                <hr class="w-full border-gray-300">
-            </div>
+        <div [ngClass]="{'hidden': !loading()}" class="flex justify-center items-center py-24">
+            <div class="w-16 h-16 bg-white border border-red-800 border-b-transparent rounded-full animate-spin"></div>
+        </div>
 
-            <div class="space-y-4">
-                <div class="flex flex-col gap-1">
-                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="phone">Téléphone</label>
-                    <input type="text" formControlName="phone" id="phone" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-                </div>
-                <div class="flex flex-col gap-1">
-                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="donorNo">N° de don</label>
-                    <input type="text" formControlName="donorNo" id="donorNo" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-                </div>
-                <div class="flex flex-col gap-1">
-                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="nin">N° CNIB</label>
-                    <input type="text" formControlName="nin" id="nin" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-                </div>
-                <div class="flex flex-col gap-1">
-                    <label class="w-auto group relative text-xs font-sans text-gray-700" for="drivingLicense">N° de permis</label>
-                    <input type="text" formControlName="drivingLicense" id="drivingLicense" class="text-sm font-sans bg-white border-1 border-gray-600 text-gray-600 px-4 py-2 rounded-md focus:outline-none">
-                </div>
+        <div [ngClass]="{'hidden': !card404()}" class="w-full py-8 mt-12 px-12 bg-red-50">
+            <div class="w-2/3 mx-auto space-y-1 text-red-800 font-sans text-center">
+                <p>Donneur introuvable avec les informations fournies</p>
+                <p>
+                    <span class="font-bold uppercase">{{form.value['lastname']}} </span> 
+                    <span class="font-bold capitalize">{{form.value['firstname']}}</span> né le 
+                    <span class="font-bold">{{form.value['birthdate']}}</span> 
+                </p>
+                @if(form.value['donorNo'] != ""){
+                <p>
+                    <span class="font-bold">N° Donneur: </span>
+                    <span class="font-bold">{{form.value['donorNo']}}</span>
+                </p>
+                }
             </div>
-        </form>
+            <div class="flex items-center justify-between gap-6 mt-8">
+                <button class="bg-red-100 text-red-900 font-medium px-4 py-2 rounded-lg cursor-pointer hover:bg-red-200" (click)="card404.set(false)">Continuer à chercher</button>
+                <button (click)="toDonorAdd()" class="hover:bg-red-100 text-red-900 font-medium px-4 py-2 rounded-lg cursor-pointer">Nouveau donneur</button>
+            </div>
+        </div>
     </div>
 </div>

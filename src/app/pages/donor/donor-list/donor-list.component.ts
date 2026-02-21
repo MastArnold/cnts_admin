@@ -1,12 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ModalSearchListComponent } from "../../../components/donor/modal-search-list/modal-search-list.component";
 import { DonorService } from '../../../services/donor.service';
-import { Donor } from '../../../models/donor.model';
 import { DatePipe } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { IcoFilterComponent } from "../../../components/ico/ico-filter/ico-filter.component";
 import { IcoLoupeComponent } from "../../../components/ico/ico-loupe/ico-loupe.component";
 import { NotFoundComponent } from "../../../components/storyset/not-found/not-found.component";
+//import { v4 as uuidv4 } from 'UUID';
 
 @Component({
   selector: 'app-donor-list',
@@ -24,6 +24,7 @@ export class DonorListComponent implements OnInit{
 
   page: number = 1;
   modalSearch = signal(false);
+  //const id = uuidv4();
 
   ngOnInit(): void {
     this.initPagination();

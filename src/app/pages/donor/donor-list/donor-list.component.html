@@ -75,7 +75,7 @@
                 <div class="w-[10%] text-xs text-[var(--pmr-2)] font-bold font-sans">Dernier don</div>
                 <div class="w-[15%] text-xs text-[var(--pmr-2)] font-bold font-sans"></div>
             </div>
-            @for(donor of donors(); track donor.id; let i = $index;){
+            @for(donor of donors(); track donor.donorNo; let i = $index;){
                 <div class="flex justify-between items-center gap-3 pt-3 pb-4 border-t-1">
                     <div class="w-[5%] text-xs text-[var(--pmr-2)] font-sans"># {{ i }}</div>
                     <div class="w-[25%] text-xs text-[var(--pmr-2)] font-sans">{{ donor.person.fullname }}</div>

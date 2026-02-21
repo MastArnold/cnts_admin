@@ -1,12 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component, ElementRef, HostListener, OnInit, signal, ViewChild, ViewEncapsulation } from '@angular/core';
-import { SidebarComponent } from "../sidebar/sidebar.component";
 import { RouterLink, RouterOutlet } from "@angular/router";
-import { time } from 'console';
+import { ConfirmCardComponent } from "../../components/cards/confirm-card/confirm-card.component";
 
 @Component({
   selector: 'app-admin-layout',
-  imports: [NgClass, RouterOutlet, RouterLink],
+  imports: [NgClass, RouterOutlet, RouterLink, ConfirmCardComponent],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.scss',
   standalone: true,
