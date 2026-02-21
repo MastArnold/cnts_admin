@@ -1,10 +1,12 @@
 <div class="w-full h-[100vh] flex justify-between gap-4">
     <!-- Sidebar -->
-    <div class="w-1/5 h-[100vh] flex flex-col justify-between py-8 px-4">
+    <div class="w-1/7 h-[100vh] flex flex-col justify-between py-8 px-4">
         <div class="w-full space-y-4">
             <!-- Brand -->
-            <div class="w-full flex gap-2">
-                <span>LOGO</span>
+            <div class="w-full flex justify-center gap-2">
+                <div class="w-10 h-10 bg-red-800 rounded-full flex justify-center items-center">
+                    <svg class="w-6 fill-white" version="1.1" viewBox="144 144 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <clipPath id="a"> <path d="m148.09 155h503.81v490h-503.81z"></path> </clipPath> </defs> <g clip-path="url(#a)"> <path d="m164.13 155.97c-8.5156 0.023438-15.473 6.8047-15.695 15.305 0.054688-1.543-0.33984-0.44531-0.33984 3.3633v192.05c0 56.227 40.148 103.18 93.32 113.95v52.914c0 60.914 49.492 110.48 110.45 110.48 60.957 0 110.51-49.566 110.51-110.48v-24.883-153.26l-0.003906-25.09c0-44.07 34.996-79.012 79.023-79.012 44.027 0 79.039 34.941 79.039 79.012v66.531c-0.015625 8.6797 7.0156 15.734 15.711 15.75 8.7148 0.007813 15.777-7.0508 15.758-15.75l0.003906-66.531c0-60.914-49.551-110.42-110.51-110.42-60.957 0-110.49 49.504-110.49 110.42l-0.003906 24.652v0.42969 178.14c0 44.07-35.012 79.012-79.039 79.012-44.027 0-78.977-34.941-78.977-79.012v-50.996c60.41-4.2539 108.23-54.484 108.23-115.87v-192.05c0-3.8906-0.35938-4.9336-0.32422-3.2539-0.16797-8.5469-7.1484-15.395-15.711-15.414zm15.496 31.484h170.02v108.19c-16.055-2.0508-31.094-1.832-45.168-0.32422-18.031 1.9336-34.539 5.8711-49.672 9.5039-28.383 6.8086-51.438 12.008-75.18 5.8008l-0.003906-44.027h28.426c8.707 0.007813 15.77-7.043 15.758-15.734-0.015625-8.6758-7.0703-15.695-15.758-15.688h-28.426zm142.78 138.07c3-0.074219 6.0312-0.058593 9.1016 0.046875 5.875 0.20312 11.945 0.91406 18.141 1.8867v39.238c0 47.293-37.656 84.875-85.02 84.875-33.953 0-62.824-19.367-76.5-47.727h19.926c8.707 0.007812 15.77-7.043 15.758-15.734 0.007813-8.6914-7.0508-15.742-15.758-15.734h-28.148c-0.10938-1.8867-0.27734-3.7617-0.27734-5.6797l-0.003906-23.844c29.363 5.4727 56.586-1.2461 82.559-7.4766 19.824-4.7539 39.227-9.3477 60.219-9.8555z"></path> </g> </g></svg>
+                </div>
             </div>
             <!-- Nav list -->
             <div class="w-full flex flex-col gap-4">
@@ -14,7 +16,24 @@
                             class="relative w-full flex gap-0 rounded-r-lg py-3 transition ease-in-out duration-300 cursor-pointer" [ngClass]="{'bg-blue-100': item.active}">
                         <span class="absolute top-0 bottom-0 left-0 w-2 bg-blue-900 rounded-xl transition-transform duration-300 ease-in-out" [ngClass]="{'origin-top scale-y-100': item.active, 'origin-bottom scale-y-0': !item.active}"></span>
                         <div class="ml-4 flex items-center gap-3">
+                            @if(item.name == "dashboard"){
+                                <app-ico-sidebar-dashboard size="w-7" f illColor="fill-gray-700" />
+                            }@else if (item.name == "center") {
+                                <app-ico-sidebar-center size="w-7" fillColor="fill-gray-700" />
+                            }@else if (item.name == "staff") {
+                                <app-ico-sidebar-staff size="w-7" fillColor="fill-gray-700" />
+                            }@else if (item.name == "donor") {
+                                <app-ico-sidebar-donor size="w-7" fillColor="fill-gray-700" />
+                            }@else if (item.name == "donation") {
+                                <app-ico-sidebar-donation size="w-7" fillColor="fill-gray-700" />
+                            }@else if (item.name == "exam") {
+                                <app-ico-sidebar-exam size="w-7" fillColor="fill-gray-700" />
+                            }@else if (item.name == "user") {
+                                <app-ico-sidebar-user size="w-7" fillColor="fill-gray-700" />
+                            }
+                            @else{
                             <div class="w-6 h-6 rounded-lg" [ngClass]="{'bg-blue-950': item.active, 'bg-gray-600': !item.active}"></div>
+                            }
                             <span class="text-xs text-gray-950 font-bold" [ngClass]="{'text-blue-950': item.active, 'text-gray-600': !item.active}">{{ item.text }}</span>
                         </div>
                     </a>
@@ -22,12 +41,12 @@
             </div>
         </div>
         <div class="flex justify-center items-center px-4">
-            <div class="w-6 h-6 bg-gray-600 rounded-lg"></div>
+            <app-ico-sidebar-setting />
         </div>
     </div>
     
     <!-- Main -->
-    <div class="w-4/5 h-full">
+    <div class="w-6/7 h-full">
         <!-- Topbar -->
         <div class="w-full h-16 flex justify-between bg-white py-4 px-4">
             <div class="flex items-center">

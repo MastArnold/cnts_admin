@@ -53,8 +53,15 @@ export class DonorViewComponent implements OnInit, CanComponentDeactivate{
     return this.dialog.open(
       'Attention',
       'Vous quittez le formulaire de vue donneur',
+      `Vous avez encore ${this.unsavedChangesCount()} champs  à confirmer !`,
+      { ok: true }
+    );
+
+    /*return this.dialog.open(
+      'Attention',
+      'Vous quittez le formulaire de vue donneur',
       `Vous avez encore ${this.unsavedChangesCount()} champs  à confirmer. Êtes-vous sûr de vouloir quitter ?`
-    )!;
+    );*/
   }
 
   initDonor(lastname: string, firstname: string, birthdate: string){

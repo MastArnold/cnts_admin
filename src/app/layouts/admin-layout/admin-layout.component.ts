@@ -2,10 +2,18 @@ import { NgClass } from '@angular/common';
 import { Component, ElementRef, HostListener, OnInit, signal, ViewChild, ViewEncapsulation } from '@angular/core';
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { ConfirmCardComponent } from "../../components/cards/confirm-card/confirm-card.component";
+import { IcoSidebarCenterComponent } from "../../components/ico/sidebar/ico-sidebar-center/ico-sidebar-center.component";
+import { IcoSidebarDashboardComponent } from "../../components/ico/sidebar/ico-sidebar-dashboard/ico-sidebar-dashboard.component";
+import { IcoSidebarStaffComponent } from "../../components/ico/sidebar/ico-sidebar-staff/ico-sidebar-staff.component";
+import { IcoSidebarDonorComponent } from "../../components/ico/sidebar/ico-sidebar-donor/ico-sidebar-donor.component";
+import { IcoSidebarDonationComponent } from "../../components/ico/sidebar/ico-sidebar-donation/ico-sidebar-donation.component";
+import { IcoSidebarUserComponent } from "../../components/ico/sidebar/ico-sidebar-user/ico-sidebar-user.component";
+import { IcoSidebarExamComponent } from "../../components/ico/sidebar/ico-sidebar-exam/ico-sidebar-exam.component";
+import { IcoSidebarSettingComponent } from "../../components/ico/sidebar/ico-sidebar-setting/ico-sidebar-setting.component";
 
 @Component({
   selector: 'app-admin-layout',
-  imports: [NgClass, RouterOutlet, RouterLink, ConfirmCardComponent],
+  imports: [NgClass, RouterOutlet, RouterLink, ConfirmCardComponent, IcoSidebarCenterComponent, IcoSidebarDashboardComponent, IcoSidebarStaffComponent, IcoSidebarDonorComponent, IcoSidebarDonationComponent, IcoSidebarUserComponent, IcoSidebarExamComponent, IcoSidebarSettingComponent],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.scss',
   standalone: true,
@@ -21,7 +29,7 @@ export class AdminLayoutComponent implements OnInit{
     },
     {
       'name': 'center',
-      'text': 'Center',
+      'text': 'Centre',
       'target': '/center',
       'active': false
     },

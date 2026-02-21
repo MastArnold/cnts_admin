@@ -11,12 +11,13 @@ export class ConfirmDialogService {
     message?: string;
     buttonConfirm?: string;
     buttonCancel?: string;
+    ok?: boolean;
     resolve?: (value: boolean) => void;
   }>({ visible: false });
 
   state$ = this._state.asObservable();
 
-  open(title: string, subtitle: string, message: string, options?: { buttonConfirm?: string, buttonCancel?: string }): Observable<boolean> {
+  open(title: string, subtitle: string, message: string, options?: { buttonConfirm?: string, buttonCancel?: string, ok?: boolean }): Observable<boolean> {
     return new Observable<boolean>(observer => {
       this._state.next({
         visible: true,
@@ -25,6 +26,7 @@ export class ConfirmDialogService {
         message,
         buttonConfirm: options?.buttonConfirm ?? 'Confirmer',
         buttonCancel: options?.buttonCancel ?? 'Annuler',
+        ok: options?.ok ?? false,
         resolve: (result: boolean) => {
           observer.next(result);
           observer.complete();
