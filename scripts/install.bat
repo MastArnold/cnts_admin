@@ -6,7 +6,7 @@ SETLOCAL EnableDelayedExpansion
 :: ==========================================
 SET APP_NAME=cnts-angular-app
 SET REPO_URL=https://github.com/MastArnold/cnts_admin.git
-SET TARGET_DIR=%CD%\cnts-admin
+SET TARGET_DIR=%~dp0cnts-admin
 SET PORT=80
 
 echo ========================================
